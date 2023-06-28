@@ -1,8 +1,13 @@
 import './App.css';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
+import BootNav from './Navbar.js';
 import Home from './Home.js';
 import Store from './Store.js';
-import BootNav from './Navbar.js';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Location from './Location.js';
+import Forum from './Forum.js';
+import Cart from './Cart.js';
+
 
 function App() {
   return (
@@ -13,6 +18,9 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />}/>
             <Route path="/store" element={<Store />}/>
+            <Route path="/location" element={<Location />}/>
+            <Route path="/forum" element={<Forum />}/>
+            <Route path="/cart" element={<Cart />}/>
           </Routes>
         </div>
       </div>

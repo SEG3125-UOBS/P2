@@ -6,7 +6,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import cart from './cart.svg'
+
+import cartIcon from './rsc/cart.svg'
+import storeIcon from './rsc/store.svg'
+import locationIcon from './rsc/location.png'
+import forumIcon from './rsc/forum.png'
+
 
 function BootNav() {
   return (
@@ -19,7 +24,7 @@ function BootNav() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="flex-grow-1">
             <Container className="my-1">
-              <Row className="my-1"> 
+              <Row className="my-2"> 
                 {/* Search Bar */}
                 <Col lg={9}>
                     <Form className="d-flex">
@@ -33,19 +38,33 @@ function BootNav() {
                     </Form>
                 </Col>
                 {/* Cart */}
-                <Col className="d-flex p-0 justify-content-end">
-                  <div className="mh-100" style={{minHeight:"100%",height:"0"}}>
-                    <img src={cart} className="h-100" alt="cartIcon"/>
+                <Col className="d-flex p-0">
+                  <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
+                    <img src={cartIcon} className="h-100" alt="cartIcon"/>
                   </div>
-                    <Nav.Link className="w-auto" as={Link} to="/cart">Cart</Nav.Link>
-                  
+                  <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
                 </Col>
               </Row>
               {/* Nav links */}
-              <Row className="my-1 justify-content-around">
-                <Nav.Link className="w-auto" as={Link} to="/store">Store</Nav.Link>
-                <Nav.Link className="w-auto" as={Link} to="/locations">Location</Nav.Link>
-                <Nav.Link className="w-auto" as={Link} to="/forums">Forums</Nav.Link>
+              <Row className="my-2 me-5 justify-content-around">
+                <Col className="d-flex">
+                  <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
+                    <img src={storeIcon} className="h-100" alt="storeIcon"/>
+                  </div>
+                  <Nav.Link className="w-auto" as={Link} to="/store">Store</Nav.Link>
+                </Col>
+                <Col className="d-flex">
+                  <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
+                    <img src={locationIcon} className="h-100" alt="locationIcon"/>
+                  </div>
+                  <Nav.Link className="w-auto" as={Link} to="/locations"><nobr>Our Locations</nobr></Nav.Link>
+                </Col>
+                <Col className="d-flex">
+                  <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
+                    <img src={forumIcon} className="h-100" alt="forumIcon"/>
+                  </div>
+                  <Nav.Link className="w-auto" as={Link} to="/forums">Forums</Nav.Link>
+                </Col>
               </Row>
             </Container>
             
