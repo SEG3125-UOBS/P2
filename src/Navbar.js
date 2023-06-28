@@ -18,7 +18,7 @@ function BootNav() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         {/* Logo */}
-        <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/P2">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
         <Navbar.Collapse id="basic-navbar-nav">
@@ -57,7 +57,7 @@ function BootNav() {
                   <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
                     <img src={locationIcon} className="h-100" alt="locationIcon"/>
                   </div>
-                  <Nav.Link className="w-auto" as={Link} to="/locations"><nobr>Our Locations</nobr></Nav.Link>
+                  <Nav.Link className="w-auto" as={Link} to="/location"><nobr>Our Locations</nobr></Nav.Link>
                 </Col>
                 <Col className="d-flex">
                   <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>

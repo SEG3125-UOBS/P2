@@ -16,7 +16,7 @@ function App() {
         <BootNav />
         <div className="content">
           <Routes>
-            <Route exact path="/" element={<Home />}/>
+            <Route exact path="/P2" element={<Home />}/>
             <Route path="/store" element={<Store />}/>
             <Route path="/location" element={<Location />}/>
             <Route path="/forum" element={<Forum />}/>
