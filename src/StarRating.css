@@ -1,0 +1,20 @@
+  .clickButton {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .viewButton {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: auto !important;
+  }
+
+  .on {
+    color: #000;
+  }
+  .off {
+    color: #ccc;
+  }
