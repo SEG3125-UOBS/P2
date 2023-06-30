@@ -6,6 +6,8 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import {Laptop1} from './rsc/imgIndex.js';
 
+import itemData from './data.json'
+
 function redirect(name) {
     //TBD: Redirect to item page
     console.log(name);
@@ -13,22 +15,9 @@ function redirect(name) {
 
 const Store = () => {
     //Data
-    const [items, setItems] = useState([
-        {name:"Laptop 1", category:["Gaming"], cost:750, rating:3, image:Laptop1, id:1},
-        {name:"Laptop 2", category:["Office"], cost:600, rating:3, image:Laptop1, id:2},
-        {name:"Desktop 1", category:["Gaming"], cost:1300, rating:3, image:Laptop1, id:3},
-        {name:"Desktop 2", category:["Office"], cost:800, rating:3, image:Laptop1, id:4},
-        {name:"Printer 1", category:["Office"], cost:250, rating:3, image:Laptop1, id:5},
-        {name:"Ultra-Widescreen 1", category:["Gaming","Office"], cost:500, rating:3, image:Laptop1, id:6},
-        {name:"Screen 1", category:["Office","Office"], cost:300, rating:3, image:Laptop1, id:7},
-        {name:"Keyboard 1", category:["Gaming"], cost:80, rating:3, image:Laptop1, id:8},
-        {name:"Keyboard 2", category:["Office"], cost:150, rating:3, image:Laptop1, id:9},
-        {name:"Mouse 1", category:["Gaming"], cost:20, rating:3, image:Laptop1, id:10},
-        {name:"Mouse 2", category:["Office"], cost:50, rating:3, image:Laptop1, id:12},
-        {name:"Chair 1", category:["Gaming"], cost:300, rating:3, image:Laptop1, id:13},
-        {name:"Chair 2", category:["Office"], cost:500, rating:3, image:Laptop1, id:14},
-        {name:"Desk", category:["Office","Gaming"], cost:150, rating:3, image:Laptop1, id:11},
-    ]);
+    const [items, setItems] = useState(
+        itemData.items.map(eachItem => ({...eachItem, image:Laptop1}))
+    );
 
     //Cost Filter Data
     const [costDisabled, setCostDisabled] = useState(true)
@@ -131,7 +120,7 @@ const Store = () => {
                         {/* Cost Filter */}
                         <div className="text-start p-2">
                             <input type="checkbox" id="cost-switch" className="form-check-input mx-3" onChange={e => setCostDisabled(!e.target.checked)}></input>
-                            <label title="" for="cost-switch" className="form-check-label">Cost Filter</label>
+                            <label title="" htmlFor="cost-switch" className="form-check-label">Cost Filter</label>
 
                             <Row className="p-2">
                                 <Col><input className="form-control" type="number" id="minCost" placeholder="Minimum" disabled={costDisabled}></input></Col>
@@ -142,7 +131,7 @@ const Store = () => {
                         {/* Rating Filter */}
                         <div className="text-start p-2">
                             <input type="checkbox" id="rating-switch" className="form-check-input mx-3" onChange={e => setRatingDisabled(!e.target.checked)}></input>
-                            <label title="" for="rating-switch" className="form-check-label">Rating Filter</label>
+                            <label title="" htmlFor="rating-switch" className="form-check-label">Rating Filter</label>
 
                             <Row className="p-2">
                                 {/* <Col><input className="form-control" type="number" id="minRating" placeholder="Minimum" disabled={ratingDisabled}></input></Col> */}
@@ -153,7 +142,7 @@ const Store = () => {
                         {/* Sale Filter */}
                         <div className="text-start p-2 pb-4">
                             <input type="checkbox" id="sale-switch" className="form-check-input mx-3"></input>
-                            <label title="" for="sale-switch" className="form-check-label">Sale Filter</label>
+                            <label title="" htmlFor="sale-switch" className="form-check-label">Sale Filter</label>
                         </div>
                         
                     </Row>
