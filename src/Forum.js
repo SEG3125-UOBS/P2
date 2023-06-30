@@ -1,13 +1,24 @@
 import Accordion from 'react-bootstrap/Accordion';
 import { Col, Row } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import './Forum.css'
 
-import itemDataImport from './data.json'
-const itemData = itemDataImport.items;
+import dataImport from './data.json'
+const itemData = dataImport.items;
+const forumData = dataImport.forums;
+
+function forumRedirect(forumSelected){
+    //TBD: redirect
+    console.log(forumSelected);
+}
 
 const Forum = () => {
     return (
         <div className="forum">
             <h1 className='p-3 m-3'>Forums</h1>
+
+            {/* New Forum Post */}
             <h3 className='p-1'>Have a Question?</h3>
             <Row className='justify-content-center'>
                 <Col xs={8}>
@@ -17,26 +28,74 @@ const Forum = () => {
                             <Accordion.Body>
                                 <Row>
                                     <Col xs={8}>
-                                        <input className="form-control" type="text" id="minCost" placeholder="Subject Line"></input>
+                                        <input className="form-control" type="text" id="subjectLine" placeholder="Subject Line"></input>
                                     </Col>
                                     <Col xs={4}>
-                                    <input class="form-control mr-sm-2" oninput='onInput()' list="datalistOptions" id="dataList" placeholder="Relevant Product"></input>
+                                    <input className="form-control mr-sm-2" list="datalistOptions" id="dataList" placeholder="Relevant Product"></input>
                                     <datalist id="datalistOptions">
                                         {
                                             itemData.map((item) => (
-                                                <option value={item.name}>{item.name}</option>
+                                                <option value={item.name} key={item.id}>{item.name}</option>
                                             ))
                                         }
                                     </datalist>
                                     </Col>
                                 </Row>
-                                <p>1</p>
+                                <Row>
+                                    <Col>
+                                    <textarea className="form-control mt-2" id="forumText" placeholder="Forum Post Text" rows={5}></textarea>
+                                    </Col>
+                                </Row>
+                                <Button className='mt-3'>Submit</Button>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
                 </Col>
             </Row>
+
+            {/* Forum list */}
+            <div className='p-5'>
+                <h3 className='p-1'>Find posts by product or by forum title</h3>
+                <Row>
+                    <Col xs={8}>
+                        <input className="form-control" type="text" id="subjectLineFilter" placeholder="Search by Forum Title"></input>
+                    </Col>
+                    <Col xs={4}>
+                    <input className="form-control mr-sm-2" list="datalistOptions" id="dataListFilter" placeholder="Filter by product"></input>
+                    <datalist id="datalistOptions">
+                        {
+                            itemData.map((item) => (
+                                <option value={item.name} key={item.id}>{item.name}</option>
+                            ))
+                        }
+                    </datalist>
+                    </Col>
+                </Row>
+                <Row className="g-0">
+                    {
+                        forumData.map((forum) => (
+                            <Col sm={12} md={6} xl={4} key={forum.id} className="p-4">
+                                <Card onClick={() => forumRedirect(forum.title)}>
+                                    <Card.Body>
+                                        <Card.Title>{forum.title}</Card.Title>
+                                        {/* Make Clickable?: add hover cursor effect, add redirect */}
+                                        <p className='fw-bold'>Related Product: {forum.item}</p>
+                                        <Row>
+                                            <Col>
+                                                <p className='card-text forumText'>
+                                                    {forum.text}
+                                                </p>
+                                            </Col>
+                                        </Row>
+                                    </Card.Body>
+                                </Card>
+                            </Col>                        
+                        ))
+                    }
+                    </Row>
+            </div>
             
+
         </div>
     );
 }

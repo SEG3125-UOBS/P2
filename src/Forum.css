@@ -1,0 +1,6 @@
+.forumText{
+    text-align: start;
+    text-overflow: ellipsis;
+    height: 150px;
+    overflow: hidden;
+}

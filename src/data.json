@@ -15,5 +15,9 @@
         {"name":"Chair 1", "category":["Gaming"], "cost":300, "rating":3, "image":"Laptop1", "id":13},
         {"name":"Chair 2", "category":["Office"], "cost":500, "rating":3, "image":"Laptop1", "id":14},
         {"name":"Desk", "category":["Office","Gaming"], "cost":150, "rating":3, "image":"Laptop1", "id":11}
+    ],
+    "forums":[
+        {"id":1, "title":"Laptop 1 breaks too easily", "item":"Laptop 1", "text":"I purchased the Laptop 1 and it breaks way too easily.", "replies":[]},
+        {"id":2, "title":"Laptop 2 battery low", "item":"Laptop 2", "text":"The laptop battery doesnt last long enough. Also the fan runs too loud", "replies":[]}
     ]
 }
