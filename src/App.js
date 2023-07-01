@@ -7,7 +7,8 @@ import Store from './Store.js';
 import Location from './Location.js';
 import Forum from './Forum.js';
 import Cart from './Cart.js';
-
+import ForumPost from './ForumPost.js';
+import Item from './Item.js';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             <Route path="/location" element={<Location />}/>
             <Route path="/forums" element={<Forum />}/>
             <Route path="/cart" element={<Cart />}/>
+            <Route path="/forumPost/:postId" element={<ForumPost />}/>
+            <Route path="/item/:itemId" element={<Item />}/>
           </Routes>
         </div>
       </div>

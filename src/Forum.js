@@ -3,17 +3,20 @@ import { Col, Row } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Forum.css'
+import {useNavigate} from "react-router-dom";
 
 import dataImport from './data.json'
 const itemData = dataImport.items;
-const forumData = dataImport.forums;
-
-function forumRedirect(forumSelected){
-    //TBD: redirect
-    console.log(forumSelected);
-}
+const forumData = dataImport.forums.filter(headPost => headPost.reply===false);
 
 const Forum = () => {
+
+    const navigate = useNavigate();
+    function forumRedirect(forumSelected){
+        navigate(`/forumPost/${forumSelected}`)
+    }
+    
+
     return (
         <div className="forum">
             <h1 className='p-3 m-3'>Forums</h1>
@@ -75,7 +78,7 @@ const Forum = () => {
                     {
                         forumData.map((forum) => (
                             <Col sm={12} md={6} xl={4} key={forum.id} className="p-4">
-                                <Card onClick={() => forumRedirect(forum.title)}>
+                                <Card onClick={() => forumRedirect(forum.id)}>
                                     <Card.Body>
                                         <Card.Title>{forum.title}</Card.Title>
                                         {/* Make Clickable?: add hover cursor effect, add redirect */}

@@ -3,15 +3,12 @@ import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import StarRating from "./StarRating";
 import Accordion from 'react-bootstrap/Accordion';
+import {useNavigate} from "react-router-dom";
 
 import {Laptop1} from './rsc/imgIndex.js';
 
 import itemData from './data.json'
 
-function redirect(name) {
-    //TBD: Redirect to item page
-    console.log(name);
-}
 
 const Store = () => {
     //Data
@@ -25,6 +22,12 @@ const Store = () => {
     //Rating Filter Data
     const [ratingDisabled, setRatingDisabled] = useState(true)
     
+    const navigate = useNavigate();
+    function redirect(itemId){
+        navigate(`/item/${itemId}`)
+    }
+    
+
     return (
         <div className="store">
             {/* Categories and filters */}
@@ -153,7 +156,7 @@ const Store = () => {
                     {
                         items.map((item) => (
                             <Col sm={12} md={6} xl={4} key={item.id} className="p-4">
-                                <Card onClick={() => redirect(item.name)}>
+                                <Card onClick={() => redirect(item.id)}>
                                     <Card.Img variant="top" src={item.image} />
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>

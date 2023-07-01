@@ -17,7 +17,10 @@
         {"name":"Desk", "category":["Office","Gaming"], "cost":150, "rating":3, "image":"Laptop1", "id":11}
     ],
     "forums":[
-        {"id":1, "title":"Laptop 1 breaks too easily", "item":"Laptop 1", "text":"I purchased the Laptop 1 and it breaks way too easily.", "replies":[]},
-        {"id":2, "title":"Laptop 2 battery low", "item":"Laptop 2", "text":"The laptop battery doesnt last long enough. Also the fan runs too loud", "replies":[]}
+        {"id":1, "reply":false, "title":"Laptop 1 breaks too easily", "item":"Laptop 1", "text":"I purchased the Laptop 1 and it breaks way too easily.", "replies":[3,5]},
+        {"id":2, "reply":false, "title":"Laptop 2 battery low", "item":"Laptop 2", "text":"The laptop battery doesnt last long enough. Also the fan runs too loud", "replies":[]},
+        {"id":3, "reply":true, "title":"", "item":"", "text":"I have had the same issue", "replies":[4]},
+        {"id":4, "reply":true, "title":"", "item":"", "text":"Don't throw it down the stairs then", "replies":[]},
+        {"id":5, "reply":true, "title":"", "item":"", "text":"Its an issue with the manufacturer I think.", "replies":[]}
     ]
 }
