@@ -7,13 +7,18 @@ import {useNavigate} from "react-router-dom";
 
 import {Laptop1} from './rsc/imgIndex.js';
 
-import itemData from './data.json'
+import data from './data.json'
 
 
 const Store = () => {
+    
+    //Dictionary for images
+    const imgDict = {
+        "Laptop1": Laptop1
+    }
     //Data
     const [items, setItems] = useState(
-        itemData.items.map(eachItem => ({...eachItem, image:Laptop1}))
+        data.items.map(eachItem => ({...eachItem, imageData:imgDict[eachItem.image]}))
     );
 
     //Cost Filter Data
@@ -26,7 +31,18 @@ const Store = () => {
     function redirect(itemId){
         navigate(`/item/${itemId}`)
     }
-    
+
+    //Calculates the score of the item
+    function getReviewScore(itemId) {
+        const relevantReviews = data.reviews.filter(review => review.itemId===itemId)
+        var score = 0;
+        for (let i=0;i<relevantReviews.length;i++) {
+            score += relevantReviews[i].rating
+        }
+        return (Math.round(score/relevantReviews.length))
+    }
+
+    getReviewScore(1)
 
     return (
         <div className="store">
@@ -157,11 +173,11 @@ const Store = () => {
                         items.map((item) => (
                             <Col sm={12} md={6} xl={4} key={item.id} className="p-4">
                                 <Card onClick={() => redirect(item.id)}>
-                                    <Card.Img variant="top" src={item.image} />
+                                    <Card.Img variant="top" src={item.imageData} />
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Row>
-                                            <Col><StarRating presetRating={item.rating} viewOnly={true}/></Col>
+                                            <Col><StarRating presetRating={getReviewScore(item.id)} viewOnly={true}/></Col>
                                             <Col>
                                                 <Card.Text>
                                                 Cost: {item.cost}$

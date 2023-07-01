@@ -7,11 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import cartIcon from './rsc/cart.svg'
-import storeIcon from './rsc/store.svg'
-import locationIcon from './rsc/location.png'
-import forumIcon from './rsc/forum.png'
-
+import {cartIcon, storeIcon, locationIcon, forumIcon} from './rsc/imgIndex.js';
 
 function BootNav() {
   return (

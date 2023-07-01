@@ -7,7 +7,13 @@ import {useNavigate} from "react-router-dom";
 
 import dataImport from './data.json'
 const itemData = dataImport.items;
-const forumData = dataImport.forums.filter(headPost => headPost.reply===false);
+var forumData = dataImport.forums.filter(headPost => headPost.reply===false);
+//Get the names of the items from the IDs
+forumData = forumData.map(
+    post => ({...post, itemName:itemData.filter(item => item.id===post.itemId)[0].name})
+)
+
+console.log(forumData)
 
 const Forum = () => {
 
@@ -82,7 +88,7 @@ const Forum = () => {
                                     <Card.Body>
                                         <Card.Title>{forum.title}</Card.Title>
                                         {/* Make Clickable?: add hover cursor effect, add redirect */}
-                                        <p className='fw-bold'>Related Product: {forum.item}</p>
+                                        <p className='fw-bold'>Related Product: {forum.itemName}</p>
                                         <Row>
                                             <Col>
                                                 <p className='card-text forumText'>

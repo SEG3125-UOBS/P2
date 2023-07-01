@@ -1,26 +1,75 @@
 
 {
     "items": [
-        {"name":"Laptop 1", "category":["Gaming"], "cost":750, "rating":3, "image":"Laptop1", "id":1},
-        {"name":"Laptop 2", "category":["Office"], "cost":600, "rating":3, "image":"Laptop1", "id":2},
-        {"name":"Desktop 1", "category":["Gaming"], "cost":1300, "rating":3, "image":"Laptop1", "id":3},
-        {"name":"Desktop 2", "category":["Office"], "cost":800, "rating":3, "image":"Laptop1", "id":4},
-        {"name":"Printer 1", "category":["Office"], "cost":250, "rating":3, "image":"Laptop1", "id":5},
-        {"name":"Ultra-Widescreen 1", "category":["Gaming","Office"], "cost":500, "rating":3, "image":"Laptop1", "id":6},
-        {"name":"Screen 1", "category":["Office","Office"], "cost":300, "rating":3, "image":"Laptop1", "id":7},
-        {"name":"Keyboard 1", "category":["Gaming"], "cost":80, "rating":3, "image":"Laptop1", "id":8},
-        {"name":"Keyboard 2", "category":["Office"], "cost":150, "rating":3, "image":"Laptop1", "id":9},
-        {"name":"Mouse 1", "category":["Gaming"], "cost":20, "rating":3, "image":"Laptop1", "id":10},
-        {"name":"Mouse 2", "category":["Office"], "cost":50, "rating":3, "image":"Laptop1", "id":12},
-        {"name":"Chair 1", "category":["Gaming"], "cost":300, "rating":3, "image":"Laptop1", "id":13},
-        {"name":"Chair 2", "category":["Office"], "cost":500, "rating":3, "image":"Laptop1", "id":14},
-        {"name":"Desk", "category":["Office","Gaming"], "cost":150, "rating":3, "image":"Laptop1", "id":11}
+        {"name":"Laptop 1", "category":["Gaming"], "cost":750,  "image":"Laptop1", "id":1},
+        {"name":"Laptop 2", "category":["Office"], "cost":600,  "image":"Laptop1", "id":2},
+        {"name":"Desktop 1", "category":["Gaming"], "cost":1300,  "image":"Laptop1", "id":3},
+        {"name":"Desktop 2", "category":["Office"], "cost":800,  "image":"Laptop1", "id":4},
+        {"name":"Printer 1", "category":["Office"], "cost":250, "image":"Laptop1", "id":5},
+        {"name":"Ultra-Widescreen 1", "category":["Gaming","Office"], "cost":500, "rating":1, "image":"Laptop1", "id":6},
+        {"name":"Screen 1", "category":["Office","Office"], "cost":300, "image":"Laptop1", "id":7},
+        {"name":"Keyboard 1", "category":["Gaming"], "cost":80,  "image":"Laptop1", "id":8},
+        {"name":"Keyboard 2", "category":["Office"], "cost":150,  "image":"Laptop1", "id":9},
+        {"name":"Mouse 1", "category":["Gaming"], "cost":20, "image":"Laptop1", "id":10},
+        {"name":"Mouse 2", "category":["Office"], "cost":50,  "image":"Laptop1", "id":11},
+        {"name":"Chair 1", "category":["Gaming"], "cost":300,  "image":"Laptop1", "id":12},
+        {"name":"Chair 2", "category":["Office"], "cost":500, "image":"Laptop1", "id":13},
+        {"name":"Desk", "category":["Office","Gaming"], "cost":150, "image":"Laptop1", "id":15}
     ],
+
+    "itemDetails":[
+        {"id":1, "description":"A medium/high end gaming laptop.", "additional":["AMD Ryzen 7 7745HX Processor","1 TB SSD storage","32 GB DDR5-5200MHz (SODIMM) (2x16GB)"]},
+        {"id":2, "description":"A standard office laptop. Built for durability and cost-effectivenes", "additional":[]},
+        {"id":3, "description":"A high-end gaming desktop. Pre-built by manufacturer", "additional":[]},
+        {"id":4, "description":"A", "additional":[]},
+        {"id":5, "description":"A", "additional":[]},
+        {"id":6, "description":"A", "additional":[]},
+        {"id":7, "description":"A", "additional":[]},
+        {"id":8, "description":"A", "additional":[]},
+        {"id":9, "description":"A", "additional":[]},
+        {"id":10, "description":"A", "additional":[]},
+        {"id":11, "description":"A", "additional":[]},
+        {"id":12, "description":"A", "additional":[]},
+        {"id":13, "description":"A", "additional":[]},
+        {"id":14, "description":"A", "additional":[]},
+        {"id":15, "description":"A", "additional":[]}
+    ],
+
+    "reviews":[
+        {"id":1, "itemId":1, "rating":4, "text":"Pretty good for the cost"},
+        {"id":2, "itemId":2, "rating":4, "text":""},
+        {"id":3, "itemId":3, "rating":4, "text":""},
+        {"id":4, "itemId":4, "rating":4, "text":""},
+        {"id":5, "itemId":5, "rating":4, "text":""},
+        {"id":6, "itemId":6, "rating":4, "text":""},
+        {"id":7, "itemId":7, "rating":4, "text":""},
+        {"id":8, "itemId":8, "rating":4, "text":""},
+        {"id":9, "itemId":9, "rating":4, "text":""},
+        {"id":10, "itemId":10, "rating":4, "text":""},
+        {"id":11, "itemId":11, "rating":4, "text":""},
+        {"id":12, "itemId":12, "rating":4, "text":""},
+        {"id":13, "itemId":13, "rating":4, "text":""},
+        {"id":14, "itemId":14, "rating":4, "text":""},
+        {"id":15, "itemId":15, "rating":4, "text":""},
+        {"id":16, "itemId":1, "rating":1, "text":""},
+        {"id":17, "itemId":1, "rating":5, "text":""},
+        {"id":18, "itemId":2, "rating":3, "text":""},
+        {"id":19, "itemId":4, "rating":4, "text":""},
+        {"id":20, "itemId":4, "rating":3, "text":""},
+        {"id":21, "itemId":5, "rating":2, "text":""},
+        {"id":22, "itemId":7, "rating":2, "text":""},
+        {"id":23, "itemId":8, "rating":4, "text":""},
+        {"id":24, "itemId":10, "rating":5, "text":""},
+        {"id":25, "itemId":12, "rating":3, "text":""},
+        {"id":26, "itemId":13, "rating":2, "text":""}
+
+    ],
+
     "forums":[
-        {"id":1, "reply":false, "title":"Laptop 1 breaks too easily", "item":"Laptop 1", "text":"I purchased the Laptop 1 and it breaks way too easily.", "replies":[3,5]},
-        {"id":2, "reply":false, "title":"Laptop 2 battery low", "item":"Laptop 2", "text":"The laptop battery doesnt last long enough. Also the fan runs too loud", "replies":[]},
-        {"id":3, "reply":true, "title":"", "item":"", "text":"I have had the same issue", "replies":[4]},
-        {"id":4, "reply":true, "title":"", "item":"", "text":"Don't throw it down the stairs then", "replies":[]},
-        {"id":5, "reply":true, "title":"", "item":"", "text":"Its an issue with the manufacturer I think.", "replies":[]}
+        {"id":1, "reply":false, "title":"Laptop 1 breaks too easily", "itemId":1, "text":"I purchased the Laptop 1 and it breaks way too easily.", "replies":[3,5]},
+        {"id":2, "reply":false, "title":"Laptop 2 battery low", "itemId":2, "text":"The laptop battery doesnt last long enough. Also the fan runs too loud", "replies":[]},
+        {"id":3, "reply":true, "title":"", "itemId":"", "text":"I have had the same issue", "replies":[4]},
+        {"id":4, "reply":true, "title":"", "itemId":"", "text":"Don't throw it down the stairs then", "replies":[]},
+        {"id":5, "reply":true, "title":"", "itemId":"", "text":"Its an issue with the manufacturer I think.", "replies":[]}
     ]
 }
