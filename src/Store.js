@@ -5,7 +5,7 @@ import StarRating from "./StarRating";
 import Accordion from 'react-bootstrap/Accordion';
 import {useNavigate} from "react-router-dom";
 
-import {Laptop1} from './rsc/imgIndex.js';
+import {Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
 import data from './data.json'
 
@@ -14,9 +14,22 @@ const Store = () => {
     
     //Dictionary for images
     const imgDict = {
-        "Laptop1": Laptop1
+        "Laptop1": Laptop1,
+        "Laptop2": Laptop2,
+        "Desktop1": Desktop1,
+        "Desktop2": Desktop2,
+        "Printer1": Printer1,
+        "WideScreen1": WideScreen1,
+        "Screen1": Screen1,
+        "Keyboard1": Keyboard1,
+        "Keyboard2": Keyboard2,
+        "Mouse1": Mouse1,
+        "Mouse2": Mouse2,
+        "Chair1": Chair1,
+        "Chair2": Chair2,
+        "Desk1": Desk1
     }
-    //Data
+    //Bind items to their image
     const [items, setItems] = useState(
         data.items.map(eachItem => ({...eachItem, imageData:imgDict[eachItem.image]}))
     );
@@ -41,8 +54,6 @@ const Store = () => {
         }
         return (Math.round(score/relevantReviews.length))
     }
-
-    getReviewScore(1)
 
     return (
         <div className="store">
@@ -173,7 +184,7 @@ const Store = () => {
                         items.map((item) => (
                             <Col sm={12} md={6} xl={4} key={item.id} className="p-4">
                                 <Card onClick={() => redirect(item.id)}>
-                                    <Card.Img variant="top" src={item.imageData} />
+                                    <Card.Img variant="top" src={item.imageData} style={{maxHeight:"250px"}} />
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Row>

@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useNavigate} from "react-router-dom";
 
-import {Laptop1, cartIcon} from './rsc/imgIndex.js';
+import {cartIcon ,Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
 function addToCart(){
     //TBD: add to cart feature
@@ -20,8 +20,22 @@ const Item = () => {
     const itemData = data.items;
     var itemBasic = itemData.filter(item => item.id===parseInt(itemId))[0]
     //Convert img string to actual Image
+    //Dictionary for images
     const imgDict = {
-        "Laptop1": Laptop1
+        "Laptop1": Laptop1,
+        "Laptop2": Laptop2,
+        "Desktop1": Desktop1,
+        "Desktop2": Desktop2,
+        "Printer1": Printer1,
+        "WideScreen1": WideScreen1,
+        "Screen1": Screen1,
+        "Keyboard1": Keyboard1,
+        "Keyboard2": Keyboard2,
+        "Mouse1": Mouse1,
+        "Mouse2": Mouse2,
+        "Chair1": Chair1,
+        "Chair2": Chair2,
+        "Desk1": Desk1
     }
     itemBasic.imageData = imgDict[itemBasic.image]
 

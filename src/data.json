@@ -1,20 +1,20 @@
 
 {
     "items": [
-        {"name":"Laptop 1", "category":["Gaming"], "cost":750,  "image":"Laptop1", "id":1},
-        {"name":"Laptop 2", "category":["Office"], "cost":600,  "image":"Laptop1", "id":2},
-        {"name":"Desktop 1", "category":["Gaming"], "cost":1300,  "image":"Laptop1", "id":3},
-        {"name":"Desktop 2", "category":["Office"], "cost":800,  "image":"Laptop1", "id":4},
-        {"name":"Printer 1", "category":["Office"], "cost":250, "image":"Laptop1", "id":5},
-        {"name":"Ultra-Widescreen 1", "category":["Gaming","Office"], "cost":500, "rating":1, "image":"Laptop1", "id":6},
-        {"name":"Screen 1", "category":["Office","Office"], "cost":300, "image":"Laptop1", "id":7},
-        {"name":"Keyboard 1", "category":["Gaming"], "cost":80,  "image":"Laptop1", "id":8},
-        {"name":"Keyboard 2", "category":["Office"], "cost":150,  "image":"Laptop1", "id":9},
-        {"name":"Mouse 1", "category":["Gaming"], "cost":20, "image":"Laptop1", "id":10},
-        {"name":"Mouse 2", "category":["Office"], "cost":50,  "image":"Laptop1", "id":11},
-        {"name":"Chair 1", "category":["Gaming"], "cost":300,  "image":"Laptop1", "id":12},
-        {"name":"Chair 2", "category":["Office"], "cost":500, "image":"Laptop1", "id":13},
-        {"name":"Desk", "category":["Office","Gaming"], "cost":150, "image":"Laptop1", "id":15}
+        {"name":"Laptop 1", "category":["laptop"], "cost":750,  "image":"Laptop2", "id":1},
+        {"name":"Laptop 2", "category":["laptop"], "cost":600,  "image":"Laptop1", "id":2},
+        {"name":"Desktop 1", "category":["desktop"], "cost":1300,  "image":"Desktop1", "id":3},
+        {"name":"Desktop 2", "category":["desktop"], "cost":800,  "image":"Desktop2", "id":4},
+        {"name":"Printer 1", "category":["printer"], "cost":250, "image":"Printer1", "id":5},
+        {"name":"Ultra-Widescreen 1", "category":["monitor"], "cost":500, "rating":1, "image":"WideScreen1", "id":6},
+        {"name":"Screen 1", "category":["monitor"], "cost":300, "image":"Screen1", "id":7},
+        {"name":"Keyboard 1", "category":["keyboard"], "cost":80,  "image":"Keyboard1", "id":8},
+        {"name":"Keyboard 2", "category":["keyboard"], "cost":150,  "image":"Keyboard2", "id":9},
+        {"name":"Mouse 1", "category":["mouse"], "cost":20, "image":"Mouse1", "id":10},
+        {"name":"Mouse 2", "category":["mouse"], "cost":50,  "image":"Mouse2", "id":11},
+        {"name":"Chair 1", "category":["chair"], "cost":300,  "image":"Chair1", "id":12},
+        {"name":"Chair 2", "category":["chair"], "cost":500, "image":"Chair2", "id":13},
+        {"name":"Desk", "category":["desk"], "cost":150, "image":"Desk1", "id":15}
     ],
 
     "itemDetails":[
