@@ -13,8 +13,6 @@ forumData = forumData.map(
     post => ({...post, itemName:itemData.filter(item => item.id===post.itemId)[0].name})
 )
 
-console.log(forumData)
-
 const Forum = () => {
 
     const navigate = useNavigate();

@@ -9,7 +9,10 @@ import Button from 'react-bootstrap/Button';
 
 import {logo, cartIcon, storeIcon, locationIcon, forumIcon} from './rsc/imgIndex.js';
 
-function BootNav() {
+function BootNav(masterCart) {
+  
+  const numOfCartItems = masterCart.cartValues[0]
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -30,7 +33,7 @@ function BootNav() {
                         className="me-2"
                         aria-label="Search"
                       />
-                      <Button variant="outline-success">Search</Button>
+                      <Button variant="outline-primary">Search</Button>
                     </Form>
                 </Col>
                 {/* Cart */}
@@ -38,7 +41,7 @@ function BootNav() {
                   <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
                     <img src={cartIcon} className="h-100" alt="cartIcon"/>
                   </div>
-                  <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+                  <Nav.Link as={Link} to="/cart"><nobr>Cart ({numOfCartItems})</nobr></Nav.Link>
                 </Col>
               </Row>
               {/* Nav links */}

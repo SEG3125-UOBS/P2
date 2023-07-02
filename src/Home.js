@@ -108,7 +108,7 @@ const Home = () => {
 
             <Row className="g-0 px-4">
             {
-                categoryList.map((category) => {
+                categoryList.map((category,index) => {
                     var catItemList = itemData.filter((item) => item.category.includes(category))
                     var displayItem;
                     if (catItemList.length!==0) {
@@ -118,7 +118,7 @@ const Home = () => {
                     }
                     
                     return (
-                        <Col sm={6} xl={3} className="p-2">
+                        <Col sm={6} xl={3} key={index} className="p-2">
                             <Card onClick={() => redirectCategory()}>
                                 <Card.Img variant="top" src={displayItem.imageData} style={{maxHeight:"275px"}}/>
                                 

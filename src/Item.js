@@ -10,12 +10,12 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import {cartIcon ,Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
-function addToCart(){
-    //TBD: add to cart feature
-    console.log("added")
-}
 
-const Item = () => {
+
+const Item = (masterCart) => {
+    const currentCartItems = masterCart.cart[0]
+    const setCartItems = masterCart.cart[1]
+
     const {itemId} = useParams()
 
     const itemData = data.items;
@@ -76,7 +76,9 @@ const Item = () => {
         navigate(`/forumPost/${selectedForum.id}`)
     }
 
-
+    function addToCart(){    
+        setCartItems(currentCartItems => [...currentCartItems, itemBasic.id])
+    }
 
     //Actual page begins here
     return (
@@ -129,8 +131,8 @@ const Item = () => {
             <div className="bg-light p-4 m-4">
                 <ul className="text-start">
                     {
-                        itemDetails.additional.map((point) => (
-                            <li>{point}</li>
+                        itemDetails.additional.map((point,index) => (
+                            <li key={index}>{point}</li>
                         ))
                     }
                 </ul>

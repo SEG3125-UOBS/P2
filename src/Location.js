@@ -50,9 +50,9 @@ const Location = () => {
                 <Col xs={12} md={6}>
 
                     {/* Selecting Location */}
-                    <label title="" for="locSelect" className="form-select-label">Location: </label>
-                    <Form.Select aria-label="Default select example" onChange={(e) => setLoc(e.target.value)}>
-                        <option value="0" disabled selected>Select a Location</option>
+                    <label title="" htmlFor="locSelect" className="form-select-label">Location: </label>
+                    <Form.Select aria-label="Default select example" onChange={(e) => setLoc(e.target.value)} defaultValue={"0"}>
+                        <option value="0" disabled>Select a Location</option>
                         <option value="1">Gatineau</option>
                         <option value="2">Vanier</option>
                         <option value="3">Nepean</option>
