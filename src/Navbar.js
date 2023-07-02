@@ -7,14 +7,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import {cartIcon, storeIcon, locationIcon, forumIcon} from './rsc/imgIndex.js';
+import {logo, cartIcon, storeIcon, locationIcon, forumIcon} from './rsc/imgIndex.js';
 
 function BootNav() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         {/* Logo */}
-        <Navbar.Brand as={Link} to="/P2">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/P2"><img src={logo} className="m-0 p-0" style={{maxHeight:"100px"}}></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
         <Navbar.Collapse id="basic-navbar-nav">

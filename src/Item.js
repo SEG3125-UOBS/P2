@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useNavigate} from "react-router-dom";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import {cartIcon ,Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
@@ -57,6 +58,13 @@ const Item = () => {
         }
         return (Math.round(score/itemReviews.length))
     }
+    function getReviewPercent(rating) {
+        return (itemReviews.filter(review => review.rating===rating).length / itemReviews.length)*100
+    }
+    function getReviewAmount(rating) {
+        return (itemReviews.filter(review => review.rating===rating).length)
+    }
+
 
     const [showReviewPrompt, setReviewPrompt] = useState(false)
     function onPlaceReviewClick(){
@@ -68,6 +76,9 @@ const Item = () => {
         navigate(`/forumPost/${selectedForum.id}`)
     }
 
+
+
+    //Actual page begins here
     return (
         <div className="itemPage">
             <div className="d-flex ps-4 m-4 justify-content-start">
@@ -130,7 +141,7 @@ const Item = () => {
             {/* Forums and Reviews */}
             <Row>
                 {/* Forums */}
-                <Col xs={12} md={5}>
+                <Col xs={12} md={4}>
                     <h2 className="">Forums</h2>
                     <Link to="/forums" >Write your own forum post</Link>
                     {
@@ -145,7 +156,7 @@ const Item = () => {
                 </Col>
 
                 {/* Reviews */}
-                <Col xs={12} md={7}>
+                <Col xs={12} md={4}>
                     <h2 className="">Reviews</h2>
                     <p className="m-0 align-bottom" onClick={onPlaceReviewClick} style={{cursor:"pointer",textDecoration:"underline",color:"rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1))"}}>Leave a review</p>
                     {
@@ -158,7 +169,41 @@ const Item = () => {
                     </div>
                     }
                 </Col>
+
+                <Col xs={12} md={4}>
+                    <h2 className="mb-5 pb-2">Review Distribution</h2>
+                    {
+                        <div className="p-4 m-4 bg-light text-start">
+                            <Row className="g-0 p-0">
+                                <Col md={12} xl={5}><StarRating presetRating={5} viewOnly={true}/></Col>
+                                <Col md={11} xl={6} className="mt-1"><ProgressBar now={getReviewPercent(5)} /></Col>
+                                <Col xs={1}><p className="m-0">({getReviewAmount(5)})</p></Col>
+                            </Row>
+                            <Row className="g-0 p-0">
+                                <Col md={12} xl={5}><StarRating presetRating={4} viewOnly={true}/></Col>
+                                <Col md={11} xl={6} className="mt-1"><ProgressBar now={getReviewPercent(4)} /></Col>
+                                <Col xs={1}><p className="m-0">({getReviewAmount(4)})</p></Col>
+                            </Row>
+                            <Row className="g-0 p-0">
+                                <Col md={12} xl={5}><StarRating presetRating={3} viewOnly={true}/></Col>
+                                <Col md={11} xl={6} className="mt-1"><ProgressBar now={getReviewPercent(3)} /></Col>
+                                <Col xs={1}><p className="m-0">({getReviewAmount(3)})</p></Col>
+                            </Row>
+                            <Row className="g-0 p-0">
+                                <Col md={12} xl={5}><StarRating presetRating={2} viewOnly={true}/></Col>
+                                <Col md={11} xl={6} className="mt-1"><ProgressBar now={getReviewPercent(2)} /></Col>
+                                <Col xs={1}><p className="m-0">({getReviewAmount(2)})</p></Col>
+                            </Row>
+                            <Row className="g-0 p-0">
+                                <Col md={12} xl={5}><StarRating presetRating={1} viewOnly={true}/></Col>
+                                <Col md={11} xl={6} className="mt-1"><ProgressBar now={getReviewPercent(1)} /></Col>
+                                <Col xs={1}><p className="m-0">({getReviewAmount(1)})</p></Col>
+                            </Row>
+                        </div>
+                    }
+                </Col>
             </Row>
+            
             {/* User Review section */}
             {
                 showReviewPrompt &&

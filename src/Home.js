@@ -116,8 +116,6 @@ const Home = () => {
                     } else {
                         return 
                     }
-
-                    console.log(displayItem)
                     
                     return (
                         <Col sm={6} xl={3} className="p-2">
