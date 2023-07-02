@@ -4,7 +4,6 @@ import { Col, Row } from "react-bootstrap";
 import StarRating from "./StarRating";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import {useNavigate} from "react-router-dom";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
@@ -123,7 +122,7 @@ const Item = (masterCart) => {
                 </Col>
                 
                 <Col xs={6}>
-                    <img src={itemBasic.imageData} className="mh-100 mw-100"/>
+                    <img src={itemBasic.imageData} className="mh-100 mw-100" alt="itemImage"/>
                 </Col>
 
             </Row>

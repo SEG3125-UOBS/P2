@@ -114,7 +114,7 @@ const Home = () => {
                     if (catItemList.length!==0) {
                         displayItem = catItemList[0]
                     } else {
-                        return 
+                        return
                     }
                     
                     return (

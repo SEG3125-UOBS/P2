@@ -17,7 +17,7 @@ function BootNav(masterCart) {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         {/* Logo */}
-        <Navbar.Brand as={Link} to="/P2"><img src={logo} className="m-0 p-0" style={{maxHeight:"100px"}}></img></Navbar.Brand>
+        <Navbar.Brand as={Link} to="/P2"><img src={logo} className="m-0 p-0" style={{maxHeight:"100px"}} alt="logo"></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
         <Navbar.Collapse id="basic-navbar-nav">
