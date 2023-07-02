@@ -60,7 +60,7 @@ const Location = () => {
                     
                     {/* Displaying contact info */}
                     <h2 className='p-3 m-3'>Contact Info</h2>
-                    <div className='bg-light text-start p-2'>
+                    <div className='bg-custom text-start p-2'>
                         <h4 className='ms-4 p-2 lead'>Phone Number</h4>
                         <p className='ms-5'>{locationData[activeLoc].phone}</p>
                         <h4 className='ms-4 p-2 lead'>Email</h4>
@@ -72,7 +72,7 @@ const Location = () => {
                 <Col>
                     {/* Displaying Open hours */}
                     <h2 className='p-3 m-3'>Open Hours</h2>
-                    <div className='bg-light text-start p-2'>
+                    <div className='bg-custom text-start p-2'>
                         <Row className='justify-content-center pt-1'>
                             <Col xs={4}>
                             <p className='ms-3 lead'>Monday: </p>

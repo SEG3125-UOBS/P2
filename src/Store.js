@@ -84,7 +84,7 @@ const Store = () => {
             <Row className="mw-100 g-0">
                 <Col xs={5} md={3}>
                     {/* Categories */}
-                    <Row className="m-2 bg-light">
+                    <Row className="m-2 bg-custom">
                         <h2 className="p-2">Categories</h2>
                         
                         {/* <Accordion defaultActiveKey="0" alwaysOpen> FOR STARTING WITH 1 SECTION OPEN*/}
@@ -173,7 +173,7 @@ const Store = () => {
                     </Row>
 
                     {/* Filters */}
-                    <Row className="m-2 bg-light">
+                    <Row className="m-2 bg-custom">
                         <h2 className="p-2">Filters</h2>
                         {/* TBD: This could be a form? */}
 

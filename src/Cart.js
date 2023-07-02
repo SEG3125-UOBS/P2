@@ -42,7 +42,7 @@ const Cart = (masterCart) => {
 
             <Row className="justify-content-center p-4">
                 {/* Cart Items */}
-                <Col sm={12} md={8} className="bg-light p-4">
+                <Col sm={12} md={8} className="bg-custom p-4">
                     
                     {/* Item Section */}
                     <Row>

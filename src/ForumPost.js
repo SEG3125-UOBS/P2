@@ -27,7 +27,7 @@ const ForumPost = () => {
             const reply = forumData.filter(post => post.id===replyId)[0];
             
             displayArray.push(
-                <div className="p-4 m-4 bg-light align-items-start" style={{textAlign:"start"}} key={reply.id}>
+                <div className="p-4 m-4 bg-custom align-items-start" style={{textAlign:"start"}} key={reply.id}>
                     <p className="pt-3">{reply.text}</p>
                     <div style={{textAlign:"end"}}>
                         <Button variant="outline-secondary" onClick={() => onReplyClick(replyId)}>Reply</Button>
@@ -67,7 +67,7 @@ const ForumPost = () => {
             }
         
             {/* Post card */}
-            <div className="p-4 m-4 bg-light" style={{textAlign:"start"}}>
+            <div className="p-4 m-4 bg-custom" style={{textAlign:"start"}}>
                 <h1>{mainPost.title}</h1>
                 <h2 className="lead fw-bold">Product: {mainPost.item}</h2>
                 <p className="pt-3">{mainPost.text}</p>

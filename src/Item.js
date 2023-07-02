@@ -88,7 +88,7 @@ const Item = (masterCart) => {
 
             <Row className="justify-content-center px-4" style={{margin:"auto"}}>
                 
-                <Col xs={6} className="py-2 bg-light">
+                <Col xs={6} className="py-2 bg-custom">
                     {/* Title */}
                     <Row>
                         <h1 className="fw-bold">{itemBasic.name}</h1>
@@ -127,7 +127,7 @@ const Item = (masterCart) => {
 
             </Row>
             {/* Additional details box */}
-            <div className="bg-light p-4 m-4">
+            <div className="bg-custom p-4 m-4">
                 <ul className="text-start">
                     {
                         itemDetails.additional.map((point,index) => (
@@ -147,7 +147,7 @@ const Item = (masterCart) => {
                     <Link to="/forums" >Write your own forum post</Link>
                     {
                     selectedForum!==undefined &&
-                    <div className="p-4 m-4 bg-light" onClick={() => forumRedirect()} style={{cursor:"pointer"}}>
+                    <div className="p-4 m-4 bg-custom" onClick={() => forumRedirect()} style={{cursor:"pointer"}}>
                         <h3>{selectedForum.title}</h3>
                         <p className='card-text' style={{textAlign:"start",overflow:"hidden",textOverflow:"ellipsis"}}>
                             {selectedForum.text}
@@ -162,7 +162,7 @@ const Item = (masterCart) => {
                     <p className="m-0 align-bottom" onClick={onPlaceReviewClick} style={{cursor:"pointer",textDecoration:"underline",color:"rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1))"}}>Leave a review</p>
                     {
                     selectedReview!==undefined &&
-                    <div className="p-4 m-4 bg-light">
+                    <div className="p-4 m-4 bg-custom">
                         <StarRating presetRating={selectedReview.rating} viewOnly={true}/>
                         <p className='card-text' style={{textAlign:"start",overflow:"hidden",textOverflow:"ellipsis"}}>
                             {selectedReview.text}
@@ -174,7 +174,7 @@ const Item = (masterCart) => {
                 <Col xs={12} md={4}>
                     <h2 className="mb-5 pb-2">Review Distribution</h2>
                     {
-                        <div className="p-4 m-4 bg-light text-start">
+                        <div className="p-4 m-4 bg-custom text-start">
                             <Row className="g-0 p-0">
                                 <Col md={12} xl={5}><StarRating presetRating={5} viewOnly={true}/></Col>
                                 <Col md={11} xl={6} className="mt-1"><ProgressBar now={getReviewPercent(5)} /></Col>

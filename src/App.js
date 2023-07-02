@@ -14,7 +14,7 @@ import Item from './Item.js';
 
 function App() {
 
-  const [cartItems, setCartItems] = useState([2,4,6,13,15])
+  const [cartItems, setCartItems] = useState([2,4,6,13])
   const cartNum = cartItems.length  
 
   return (

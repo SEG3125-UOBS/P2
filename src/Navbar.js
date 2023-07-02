@@ -14,7 +14,7 @@ function BootNav(masterCart) {
   const numOfCartItems = masterCart.cartValues[0]
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-custom">
       <Container>
         {/* Logo */}
         <Navbar.Brand as={Link} to="/P2"><img src={logo} className="m-0 p-0" style={{maxHeight:"100px"}} alt="logo"></img></Navbar.Brand>
