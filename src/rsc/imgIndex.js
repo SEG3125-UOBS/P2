@@ -3,6 +3,8 @@ import storeIcon from './store.svg'
 import locationIcon from './location.png'
 import forumIcon from './forum.png'
 import logo from './logo.png';
+import banner1 from './banner1.png'
+import banner2 from './banner2.png'
 
 import Laptop1 from "./laptop1.jpg";
 import Laptop2 from "./laptop2.jpg";
@@ -37,5 +39,7 @@ export {Laptop1,
         storeIcon, 
         locationIcon, 
         forumIcon,
-        logo};
+        logo,
+        banner1,
+        banner2};
     

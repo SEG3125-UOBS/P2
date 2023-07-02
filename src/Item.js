@@ -147,7 +147,7 @@ const Item = (masterCart) => {
                     <Link to="/forums" >Write your own forum post</Link>
                     {
                     selectedForum!==undefined &&
-                    <div className="p-4 m-4 bg-light" onClick={() => forumRedirect()}>
+                    <div className="p-4 m-4 bg-light" onClick={() => forumRedirect()} style={{cursor:"pointer"}}>
                         <h3>{selectedForum.title}</h3>
                         <p className='card-text' style={{textAlign:"start",overflow:"hidden",textOverflow:"ellipsis"}}>
                             {selectedForum.text}

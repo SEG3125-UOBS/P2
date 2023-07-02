@@ -1,9 +1,11 @@
 import { Col, Row } from "react-bootstrap";
 import { useState } from 'react';
+import { Link, useParams } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import StarRating from "./StarRating";
 import Accordion from 'react-bootstrap/Accordion';
 import {useNavigate} from "react-router-dom";
+import Form from 'react-bootstrap/Form';
 
 import {Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
@@ -11,7 +13,28 @@ import data from './data.json'
 
 
 const Store = () => {
-    
+
+    const {category} = useParams()
+    const categoryMap = {
+        "laptop":[0,1],
+        "desktop":[2,3],
+        "printer":[4,5],
+        "monitor":[6,7],
+        "keyboard":[8,9],
+        "mouse":[10,11],
+        "chair":[12,13],
+        "desk":[14]
+    }
+    var defaultActive = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
+    if (category!==undefined) {
+        var selectedActive = categoryMap[category]
+        defaultActive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+        for (var i=0;i<selectedActive.length;i++) {
+            defaultActive[selectedActive[i]]=true
+        }
+    }
+    const [activeCat, setActiveCat] = useState(defaultActive)
+
     //Dictionary for images
     const imgDict = {
         "Laptop1": Laptop1,
@@ -74,19 +97,22 @@ const Store = () => {
                                         <Accordion.Item eventKey="Laptops">
                                             <Accordion.Header>Laptops</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[0]} label={`Gaming Laptops`} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[1]} label={`Office Laptops`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Desktops">
                                             <Accordion.Header>Desktops</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[2]} label={`Gaming Prebuilt Desktop`} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[3]} label={`Office Prebuilt Desktop`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Printers">
                                             <Accordion.Header>Printers</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[4]} label={`Home Printers`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[5]} label={`Office Printers`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
@@ -100,19 +126,22 @@ const Store = () => {
                                         <Accordion.Item eventKey="Monitors">
                                             <Accordion.Header>Monitors</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[6]} label={`WideScreen Monitors`} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[7]} label={`Office Monitors`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Keyboards">
                                             <Accordion.Header>Keyboards</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[8]} label={`Gaming Keyboards`} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[9]} label={`Standard Keyboards`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Mouse">
                                             <Accordion.Header>Mouse</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[10]} label={`Gaming Mice`} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[11]} label={`Standard Mice`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
@@ -126,13 +155,14 @@ const Store = () => {
                                         <Accordion.Item eventKey="Chairs">
                                             <Accordion.Header>Chairs</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[12]} label={`Gaming Chairs`} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[13]} label={`Office Chairs`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Desks">
                                             <Accordion.Header>Desks</Accordion.Header>
                                             <Accordion.Body>
-                                                Lorem ipsum 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[14]} label={`Office Desks`} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>

@@ -24,7 +24,8 @@ function App() {
         <div className="content">
           <Routes>
             <Route exact path="/P2" element={<Home />}/>
-            <Route path="/store" element={<Store cart={[cartItems,setCartItems]}/>}/>
+            <Route path="/store" element={<Store />}/>
+            <Route path="/store/:category" element={<Store />}/>
             <Route path="/location" element={<Location />}/>
             <Route path="/forums" element={<Forum />}/>
             <Route path="/cart" element={<Cart cart={[cartItems,setCartItems]} />}/>

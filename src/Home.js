@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 import StarRating from "./StarRating";
 
-import {Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
+import {banner1,banner2, Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 import data from './data.json'
 
 import './Home.css';
@@ -42,7 +42,7 @@ const Home = () => {
         navigate(`/item/${itemId}`)
     }
     function redirectCategory(category){
-        //TBD: REDIRECT____________________________________________________________________________
+        navigate(`/store/${category}`)
     }
 
     //Calculates the score of the item
@@ -64,17 +64,15 @@ const Home = () => {
             {/* Carousel */}
             <Carousel data-bs-theme="dark" className='carouselBox'>
                 <Carousel.Item>
-                    <img className="d-block h-100 carousel-image" src={cartIcon} alt="First slide"/>
+                    <img className="d-block h-100 carousel-image" src={banner1} alt="First slide"/>
                     <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3>Upcoming Sale</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img className="d-block h-100 carousel-image" src={cartIcon} alt="Second slide" />
+                    <img className="d-block h-100 carousel-image" src={banner2} alt="Second slide" />
                     <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3>New Laptops in Stock</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
@@ -119,7 +117,7 @@ const Home = () => {
                     
                     return (
                         <Col sm={6} xl={3} key={index} className="p-2">
-                            <Card onClick={() => redirectCategory()}>
+                            <Card onClick={() => redirectCategory(category)}>
                                 <Card.Img variant="top" src={displayItem.imageData} style={{maxHeight:"275px"}}/>
                                 
                                 <Card.Body className='p-2'>
