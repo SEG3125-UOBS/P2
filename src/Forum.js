@@ -23,15 +23,28 @@ const Forum = () => {
         navigate(`/forumPost/${forumSelected}`)
     }
     
+    const [activeItemFilter, setActiveItemFilter] = useState("")
     function filterByItem(param){
         if (itemFilterOptions.includes(param)) {
-            var clone = forumData.filter(item=>item.itemName===param);
-            setActiveForums(clone);
+            setActiveItemFilter(param);
         } else {
-            setActiveForums(forumData);
+            setActiveItemFilter("");
         }
     }
-    const [activeForums,setActiveForums] = useState(forumData)
+
+    const [activeTitleFilter,setActiveTitleFilter] = useState("")
+
+    function getActiveForums(){
+        var activeForums = forumData.slice();
+
+        if (activeItemFilter!=="") {
+            activeForums = activeForums.filter(forum=>forum.itemName===activeItemFilter)
+        }
+
+        activeForums = activeForums.filter(forum=>forum.title.includes(activeTitleFilter))
+
+        return activeForums;
+    }
 
     return (
         <div className="forum">
@@ -77,7 +90,7 @@ const Forum = () => {
                 <h3 className='p-1'>Find posts by product or by forum title</h3>
                 <Row>
                     <Col xs={8}>
-                        <input className="form-control" type="text" id="subjectLineFilter" placeholder="Search by Forum Title"></input>
+                        <input className="form-control" onInput={(e)=>setActiveTitleFilter(e.target.value)} type="text" id="subjectLineFilter" placeholder="Search by Forum Title"></input>
                     </Col>
                     <Col xs={4}>
                     <input className="form-control mr-sm-2" onInput={(e)=>filterByItem(e.target.value)} list="datalistOptions" id="dataListFilter" placeholder="Filter by product"></input>
@@ -92,7 +105,7 @@ const Forum = () => {
                 </Row>
                 <Row className="g-0">
                     {
-                        activeForums.map((forum) => (
+                        getActiveForums().map((forum) => (
                             <Col sm={12} md={6} xl={4} key={forum.id} className="p-4">
                                 <Card onClick={() => forumRedirect(forum.id)}>
                                     <Card.Body>
