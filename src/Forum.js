@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Forum.css'
 import {useNavigate} from "react-router-dom";
+import { useState } from 'react';
 
 import dataImport from './data.json'
 const itemData = dataImport.items;
@@ -13,6 +14,8 @@ forumData = forumData.map(
     post => ({...post, itemName:itemData.filter(item => item.id===post.itemId)[0].name})
 )
 
+const itemFilterOptions = itemData.map(item=>item.name)
+
 const Forum = () => {
 
     const navigate = useNavigate();
@@ -20,6 +23,15 @@ const Forum = () => {
         navigate(`/forumPost/${forumSelected}`)
     }
     
+    function filterByItem(param){
+        if (itemFilterOptions.includes(param)) {
+            var clone = forumData.filter(item=>item.itemName===param);
+            setActiveForums(clone);
+        } else {
+            setActiveForums(forumData);
+        }
+    }
+    const [activeForums,setActiveForums] = useState(forumData)
 
     return (
         <div className="forum">
@@ -68,7 +80,7 @@ const Forum = () => {
                         <input className="form-control" type="text" id="subjectLineFilter" placeholder="Search by Forum Title"></input>
                     </Col>
                     <Col xs={4}>
-                    <input className="form-control mr-sm-2" list="datalistOptions" id="dataListFilter" placeholder="Filter by product"></input>
+                    <input className="form-control mr-sm-2" onInput={(e)=>filterByItem(e.target.value)} list="datalistOptions" id="dataListFilter" placeholder="Filter by product"></input>
                     <datalist id="datalistOptions">
                         {
                             itemData.map((item) => (
@@ -80,7 +92,7 @@ const Forum = () => {
                 </Row>
                 <Row className="g-0">
                     {
-                        forumData.map((forum) => (
+                        activeForums.map((forum) => (
                             <Col sm={12} md={6} xl={4} key={forum.id} className="p-4">
                                 <Card onClick={() => forumRedirect(forum.id)}>
                                     <Card.Body>

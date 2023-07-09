@@ -56,8 +56,8 @@ const Home = () => {
     }
 
     //Arbitrary category list for display
-    const categoryList = ["laptop","desktop","printer","monitor","keyboard","mouse","chair","desk"]
-    const categoryMap = {"laptop":"Laptops","desktop":"Desktops","printer":"Printers","monitor":"Monitors","keyboard":"Keyboards","mouse":"Computer Mice","chair":"Desk Chairs","desk":"Desks"}
+    const categoryList = [0,2,4,6,8,10,12,14]
+    const categoryMap = {0:"Laptops",2:"Desktops",4:"Printers",6:"Monitors",8:"Keyboards",10:"Computer Mice",12:"Desk Chairs",14:"Desks"}
 
     return (
         <div className="home">
@@ -83,19 +83,22 @@ const Home = () => {
             {
                 bestItems.map((item) => (
                     <Col sm={6} xl={3} key={item.id} className="p-2">
-                        <Card onClick={() => redirect(item.id)}>
-                            <Card.Img variant="top" src={item.imageData} style={{maxHeight:"275px"}}/>
-                            <Card.Body>
-                                <Card.Title>{item.name}</Card.Title>
-                                <Row>
-                                    <Col><StarRating presetRating={getReviewScore(item.id)} viewOnly={true}/></Col>
+                        <Card onClick={() => redirect(item.id)} style={{height:"365px"}}>
+                            <Card.Img variant="top" src={item.imageData} style={{maxHeight:"250px"}} />
+                                <Card.Body style={{display:"flex",alignItems:"flex-end"}}>
                                     <Col>
-                                        <Card.Text>
-                                        Cost: {item.cost}$
-                                        </Card.Text>
+                                        <Card.Title>{item.name}</Card.Title>
+                                        <Row>
+                                            <Col><StarRating presetRating={getReviewScore(item.id)} viewOnly={true}/></Col>
+                                            <Col>
+                                                <Card.Text>
+                                                Cost: {item.cost}$
+                                                </Card.Text>
+                                            </Col>
+                                        </Row>
                                     </Col>
-                                </Row>
-                            </Card.Body>
+                                    
+                                </Card.Body>
                         </Card>
                     </Col>                        
                 ))
@@ -117,10 +120,9 @@ const Home = () => {
                     
                     return (
                         <Col sm={6} xl={3} key={index} className="p-2">
-                            <Card onClick={() => redirectCategory(category)}>
+                            <Card onClick={() => redirectCategory(category)} style={{height:"325px"}}>
                                 <Card.Img variant="top" src={displayItem.imageData} style={{maxHeight:"275px"}}/>
-                                
-                                <Card.Body className='p-2'>
+                                <Card.Body className='p-2 justify-content-center' style={{display:"flex",alignItems:"flex-end"}}>
                                     <Card.Title>{categoryMap[category]}</Card.Title>
                                 </Card.Body>
                             </Card>
