@@ -8,6 +8,14 @@ import './StarRating.css';
 const StarRating = (props) => {
   const viewOnly = props.viewOnly;
   const presetRating = props.presetRating;
+  
+  const onChange = props.onChange;
+  const handleRatingChange = (index) => {
+    setRating(index)
+    if (typeof onChange === 'function') {
+      onChange(index);
+    }
+  }
 
   const [rating, setRating] = useState(viewOnly ? presetRating : 0);
   const [hover, setHover] = useState(0);
@@ -39,7 +47,7 @@ const StarRating = (props) => {
                 type="button"
                 key={index}
                 className={index <= (hover || rating) ? "on clickButton" : "off clickButton"}
-                onClick={() => setRating(index)}
+                onClick={() => handleRatingChange(index)}
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(rating)}
               >

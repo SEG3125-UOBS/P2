@@ -6,7 +6,7 @@
         {"name":"Desktop 1", "category":[2], "cost":1300,  "image":"Desktop1", "id":3},
         {"name":"Desktop 2", "category":[3], "cost":800,  "image":"Desktop2", "id":4},
         {"name":"Printer 1", "category":[4,5], "cost":250, "image":"Printer1", "id":5},
-        {"name":"Ultra-Widescreen 1", "category":[6], "cost":500, "rating":1, "image":"WideScreen1", "id":6},
+        {"name":"Ultra-Widescreen 1", "category":[6], "cost":500, "image":"WideScreen1", "id":6},
         {"name":"Screen 1", "category":[7], "cost":300, "image":"Screen1", "id":7},
         {"name":"Keyboard 1", "category":[8], "cost":80,  "image":"Keyboard1", "id":8},
         {"name":"Keyboard 2", "category":[9], "cost":150,  "image":"Keyboard2", "id":9},
