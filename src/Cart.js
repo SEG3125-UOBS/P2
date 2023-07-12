@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import data from './data.json';
 import Form from 'react-bootstrap/Form';
-
+import Alert from 'react-bootstrap/Alert';
+import { useState } from 'react';
 
 const Cart = (masterCart) => {
     //Global cart items
@@ -28,8 +29,58 @@ const Cart = (masterCart) => {
         cartSet(clone)
     }
 
+    const [showAlert,setAlert] = useState(-1)
+    function onCompleteClick() {
+        const store = document.getElementById("locationbox");
+        const time = document.getElementById("timebox");
+        const name = document.getElementById("namebox");
+        const cell = document.getElementById("numberbox");
+        
+        var display=1;
+        if (store.value==="0") {
+            display=0;
+            store.style.border = "1px solid #ff0000";
+        } else {store.style.border = "";}
+        if (time.value==="0") {
+            display=0;
+            time.style.border = "1px solid #ff0000";
+        } else {time.style.border = "";}
+        if (name.value==="") {
+            display=0;
+            name.style.border = "1px solid #ff0000";
+        } else {name.style.border = "";}
+        if (!(/^\d+$/.test(cell.value))) {
+            display=0;
+            cell.style.border = "1px solid #ff0000";
+        } else {cell.style.border = "";}
+
+        setAlert(display);
+    }
+
     return (
         <div className="cart">
+
+            {/* Alerts */}
+            <Alert show={showAlert===1} onClose={()=>setAlert(-1)} variant="success" className="m-4" dismissible>
+                <Alert.Heading>
+                    <div>Purchase Completed</div>
+                </Alert.Heading>
+                <p>
+                Congratulations! Your items have been reserved for you. Visit the store at your booked time to pick up your items. 
+                <br></br>
+                You may close this page.
+                </p>
+            </Alert>
+            <Alert show={showAlert===0} variant="danger" onClose={()=>setAlert(-1)} className="m-4" dismissible>
+                <Alert.Heading>
+                    <div>Purchase Error</div>
+                </Alert.Heading>
+                <p>
+                There was a problem purchasing your items. Try checking your appointment details before trying again.
+                </p>
+            </Alert>
+
+
             <h1 className="p-3">Your Cart</h1>
             <Row className="justify-content-center">
                 <Col sm={12} md={4}>
@@ -111,7 +162,7 @@ const Cart = (masterCart) => {
                     <div className="text-start pt-3">
                         <label title="" htmlFor="locSelect" className="form-select-label">Enter Store Location: </label>
                     </div>
-                    <Form.Select aria-label="Default select example" defaultValue={"0"}>
+                    <Form.Select aria-label="Default select example" id="locationbox" defaultValue={"0"}>
                         <option value="0" disabled>Location</option>
                         <option value="1">Gatineau</option>
                         <option value="2">Vanier</option>
@@ -121,7 +172,7 @@ const Cart = (masterCart) => {
                     <div className="text-start pt-3">
                         <label title="" htmlFor="locSelect" className="form-select-label">Enter Pickup Time:</label>
                     </div>
-                    <Form.Select aria-label="Default select example" defaultValue={"0"}>
+                    <Form.Select aria-label="Default select example" id="timebox" defaultValue={"0"}>
                         <option value="0" disabled>Pickup Time</option>
                         <option value="1">10:00</option>
                         <option value="2">11:00</option>
@@ -133,12 +184,12 @@ const Cart = (masterCart) => {
                     <div className="text-start pt-3">
                         <label title="" htmlFor="locSelect" className="form-select-label">Enter Full Name:</label>
                     </div>
-                    <input className="form-control" type="text" id="namebox" placeholder="Full Name"></input>
+                    <input className="form-control" type="text" id="namebox" placeholder="ex: John Doe"></input>
 
                     <div className="text-start pt-3">
                         <label title="" htmlFor="locSelect" className="form-select-label">Enter Cell Phone Number:</label>
                     </div>
-                    <input className="form-control" type="text" id="numberbox" placeholder="Phone number"></input>
+                    <input className="form-control" type="text" id="numberbox" placeholder="ex: 6131112222"></input>
 
                     <div className="text-start pt-3">
                         <label title="" htmlFor="locSelect" className="form-select-label">Do you need employee assistance?</label>
@@ -147,7 +198,7 @@ const Cart = (masterCart) => {
                 </Col>
             </Row>
 
-            <Button variant="outline-success" className="mt-3">Complete Purchase</Button>
+            <Button variant="outline-success" className="mt-3" onClick={()=>onCompleteClick()}>Complete Purchase</Button>
 
         </div>
     );

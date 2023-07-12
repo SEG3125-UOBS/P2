@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import './Forum.css'
 import {useNavigate} from "react-router-dom";
 import { useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
 
 import dataImport from './data.json'
 const itemData = dataImport.items;
@@ -46,14 +47,54 @@ const Forum = () => {
         return activeForums;
     }
 
+    const [showAlert,setAlert] = useState(-1)
+    function onCompleteClick() {
+        const subject = document.getElementById("subjectLine");
+        const text = document.getElementById("forumText");
+
+        var display=1;
+        if (subject.value==="") {
+            display=0;
+            subject.style.border = "1px solid #ff0000";
+        } else {subject.style.border = "";}
+        if (text.value==="") {
+            display=0;
+            text.style.border = "1px solid #ff0000";
+        } else {text.style.border = "";}
+
+        setAlert(display);
+    }
+
     return (
         <div className="forum">
+
+            {/* Alerts */}
+            <Alert show={showAlert===1} onClose={()=>setAlert(-1)} variant="success" className="m-4" dismissible>
+                <Alert.Heading>
+                    <div>Forum Post Created</div>
+                </Alert.Heading>
+                <p>
+                Congratulations! Your forum post has been submitted and is awaiting manual review. It will be posted shortly.
+                <br></br>
+                You may close this page.
+                </p>
+            </Alert>
+            <Alert show={showAlert===0} variant="danger" onClose={()=>setAlert(-1)} className="m-4" dismissible>
+                <Alert.Heading>
+                    <div>Forum Post Error</div>
+                </Alert.Heading>
+                <p>
+                There was a problem creating your forum post. Check your post details and try again.
+                </p>
+            </Alert>
+
             <h1 className='p-3 m-3'>Forums</h1>
 
             {/* New Forum Post */}
             <h3 className='p-1'>Have a Question?</h3>
             <Row className='justify-content-center'>
                 <Col xs={8}>
+
                     <Accordion className="ps-4" alwaysOpen>
                         <Accordion.Item eventKey="Laptops">
                             <Accordion.Header>Make a forum post</Accordion.Header>
@@ -78,7 +119,7 @@ const Forum = () => {
                                     <textarea className="form-control mt-2" id="forumText" placeholder="Forum Post Text" rows={5}></textarea>
                                     </Col>
                                 </Row>
-                                <Button className='mt-3'>Submit</Button>
+                                <Button className='mt-3' onClick={()=>onCompleteClick()}>Submit</Button>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
@@ -97,7 +138,7 @@ const Forum = () => {
                     <datalist id="datalistOptions">
                         {
                             itemData.map((item) => (
-                                <option value={item.name} key={item.id}>{item.name}</option>
+                                <option value={item.name} key={item.name}>{item.name}</option>
                             ))
                         }
                     </datalist>
