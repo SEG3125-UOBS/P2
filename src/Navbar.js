@@ -6,12 +6,54 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {useNavigate} from "react-router-dom";
 
+import data from './data.json';
 import {logo, cartIcon, storeIcon, locationIcon, forumIcon} from './rsc/imgIndex.js';
 
 function BootNav(masterCart) {
-  
+
+  const navigate = useNavigate();
+
   const numOfCartItems = masterCart.cartValues[0]
+
+  const searchBarCatMap = new Map([
+    ["Laptops",()=>navigate(`/store/${0}`)],
+    ["Desktops",()=>navigate(`/store/${2}`)],
+    ["Printers",()=>navigate(`/store/${4}`)],
+    ["Monitors",()=>navigate(`/store/${6}`)],
+    ["Keyboards",()=>navigate(`/store/${8}`)],
+    ["Computer Mice",()=>navigate(`/store/${10}`)],
+    ["Desk Chairs",()=>navigate(`/store/${12}`)],
+    ["Desks",()=>navigate(`/store/${14}`)]
+  ])
+  const searchBarItemMap = new Map(data.items.map((item)=>([item.name,()=>navigate(`/item/${item.id}`)])))
+  const searchBarForumMap = new Map(data.forums.map((forum)=>([forum.title,()=>navigate(`/forumPost/${forum.id}`)])))
+  searchBarForumMap.delete('')
+
+  function searchBarNav() {
+    const searchTerm = document.getElementById("searchBar").value;
+
+    var searchFunc = searchBarItemMap.get(searchTerm)
+    if (searchFunc!==undefined) {
+      searchFunc();
+      return;
+    }
+
+    searchFunc = searchBarCatMap.get(searchTerm);
+    if (searchFunc!==undefined) {
+      searchFunc();
+      return;
+    }
+
+    searchFunc = searchBarForumMap.get(searchTerm)
+    if (searchFunc!==undefined) {
+      searchFunc();
+      return;
+    }
+    
+  }
+
 
   return (
     <Navbar expand="lg" className="bg-custom">
@@ -32,8 +74,28 @@ function BootNav(masterCart) {
                         placeholder="Search"
                         className="me-2"
                         aria-label="Search"
+                        id="searchBar"
+                        list="searchOptions"
                       />
-                      <Button variant="outline-primary">Search</Button>
+                      <datalist id="searchOptions">
+                          {
+                            Array.from(searchBarCatMap).map(([mapkey,value]) => (
+                                <option value={mapkey} key={mapkey}>{mapkey}</option>
+                            ))
+                          }
+                          {
+                            Array.from(searchBarItemMap).map(([mapkey,value]) => (
+                              <option value={mapkey} key={mapkey}>{mapkey}</option>
+                            ))
+                          }
+                          {
+                            Array.from(searchBarForumMap).map(([mapkey,value]) => (
+                              <option value={mapkey} key={mapkey}>{mapkey}</option>
+                            ))
+                          }
+                      </datalist>
+
+                      <Button variant="outline-primary" onClick={()=>searchBarNav()}>Search</Button>
                     </Form>
                 </Col>
                 {/* Cart */}
