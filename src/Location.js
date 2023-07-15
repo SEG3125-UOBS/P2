@@ -56,7 +56,7 @@ const Location = () => {
                     {/* Selecting Location */}
                     <label title="" htmlFor="locSelect" className="form-select-label">{t("Location")}: </label>
                     <Form.Select aria-label="Location select" onChange={(e) => setLoc(e.target.value)} defaultValue={"0"}>
-                        <option value="0" disabled>Select a Location</option>
+                        <option value="0" disabled>{t("Select a Location")}</option>
                         <option value="1">Gatineau</option>
                         <option value="2">Vanier</option>
                         <option value="3">Nepean</option>
