@@ -167,7 +167,7 @@ const Cart = (masterCart) => {
                     <div className="text-start pt-3">
                         <label title="" htmlFor="locSelect" className="form-select-label">{t("Enter Store Location")}: </label>
                     </div>
-                    <Form.Select aria-label="Default select example" id="locationbox" defaultValue={"0"}>
+                    <Form.Select aria-label="Location select" id="locationbox" defaultValue={"0"}>
                         <option value="0" disabled>{t("Location")}</option>
                         <option value="1">Gatineau</option>
                         <option value="2">Vanier</option>
@@ -177,7 +177,7 @@ const Cart = (masterCart) => {
                     <div className="text-start pt-3">
                         <label title="" htmlFor="locSelect" className="form-select-label">{t("Enter Pickup Time")}:</label>
                     </div>
-                    <Form.Select aria-label="Default select example" id="timebox" defaultValue={"0"}>
+                    <Form.Select aria-label="Time select" id="timebox" defaultValue={"0"}>
                         <option value="0" disabled>{t("Pickup Time")}</option>
                         <option value="1">10:00</option>
                         <option value="2">11:00</option>
