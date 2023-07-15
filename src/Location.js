@@ -3,6 +3,8 @@ import { Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 
+import { useTranslation } from "react-i18next";
+
 const locationData = [
     {phone:"", email:"", postal:"", hours:[["N/A","N/A"],
                                             ["N/A","N/A"],
@@ -36,21 +38,23 @@ const locationData = [
 
 const Location = () => {
 
+    const {t,i18n} = useTranslation()
+
     const [activeLoc, setLoc] = useState(0)
 
     return (
         <div className="location">
-            <h1 className='p-4 m-4'>Our Store Locations</h1>
+            <h1 className='p-4 m-4'>{t("Our Store Locations")}</h1>
             <div id="google-map-box" className="m-4 p-4 ">
                 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=16GGPC-smlgkJXEUs5wx_-4JO8CAs_qY&ehbc=2E312F" 
                 title="google-map-title" id="google-map" loading="lazy"></iframe>
             </div>
-            <h1 className='p-4 m-4'>Select a Location to view Information</h1>
+            <h1 className='p-4 m-4'>{t("Select a Location to view Information")}</h1>
             <Row className='p-4'>
                 <Col xs={12} md={6}>
 
                     {/* Selecting Location */}
-                    <label title="" htmlFor="locSelect" className="form-select-label">Location: </label>
+                    <label title="" htmlFor="locSelect" className="form-select-label">{t("Location")}: </label>
                     <Form.Select aria-label="Default select example" onChange={(e) => setLoc(e.target.value)} defaultValue={"0"}>
                         <option value="0" disabled>Select a Location</option>
                         <option value="1">Gatineau</option>
@@ -59,29 +63,29 @@ const Location = () => {
                     </Form.Select>
                     
                     {/* Displaying contact info */}
-                    <h2 className='p-3 m-3'>Contact Info</h2>
+                    <h2 className='p-3 m-3'>{t("Contact Info")}</h2>
                     <div className='bg-custom text-start p-2'>
-                        <h4 className='ms-4 p-2 lead'>Phone Number</h4>
+                        <h4 className='ms-4 p-2 lead'>{t("Phone Number")}</h4>
                         <p className='ms-5'>{locationData[activeLoc].phone}</p>
-                        <h4 className='ms-4 p-2 lead'>Email</h4>
+                        <h4 className='ms-4 p-2 lead'>{t("Email")}</h4>
                         <p className='ms-5'>{locationData[activeLoc].email}</p>
-                        <h4 className='ms-4 p-2 lead'>Mail Address</h4>
+                        <h4 className='ms-4 p-2 lead'>{t("Mail Address")}</h4>
                         <p className='ms-5'>{locationData[activeLoc].postal}</p>
                     </div>
                 </Col>
                 <Col>
                     {/* Displaying Open hours */}
-                    <h2 className='p-3 m-3'>Open Hours</h2>
+                    <h2 className='p-3 m-3'>{t("Open Hours")}</h2>
                     <div className='bg-custom text-start p-2'>
                         <Row className='justify-content-center pt-1'>
                             <Col xs={4}>
-                            <p className='ms-3 lead'>Monday: </p>
-                            <p className='ms-3 lead'>Tuesday: </p>
-                            <p className='ms-3 lead'>Wednesday: </p>
-                            <p className='ms-3 lead'>Thursday: </p>
-                            <p className='ms-3 lead'>Friday: </p>
-                            <p className='ms-3 lead'>Saturday: </p>
-                            <p className='ms-3 lead'>Sunday: </p>
+                            <p className='ms-3 lead'>{t("Monday")}: </p>
+                            <p className='ms-3 lead'>{t("Tuesday")}: </p>
+                            <p className='ms-3 lead'>{t("Wednesday")}: </p>
+                            <p className='ms-3 lead'>{t("Thursday")}: </p>
+                            <p className='ms-3 lead'>{t("Friday")}: </p>
+                            <p className='ms-3 lead'>{t("Saturday")}: </p>
+                            <p className='ms-3 lead'>{t("Sunday")}: </p>
                             </Col>
                             <Col xs={5}>
                             <p className='ms-3 lead'>{locationData[activeLoc].hours[0][0]} - {locationData[activeLoc].hours[0][1]}</p>

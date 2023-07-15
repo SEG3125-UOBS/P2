@@ -9,9 +9,11 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import {cartIcon ,Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
-
+import { useTranslation } from "react-i18next";
 
 const Item = (masterCart) => {
+    const {t,i18n} = useTranslation()
+    
     const currentCartItems = masterCart.cart[0]
     const setCartItems = masterCart.cart[1]
 
@@ -83,7 +85,7 @@ const Item = (masterCart) => {
     return (
         <div className="itemPage">
             <div className="d-flex ps-4 m-4 justify-content-start">
-                <Link to="/store" >&lt; Back to Store page</Link>
+                <Link to="/store" >&lt; {t("Back to Store page")}</Link>
             </div>
 
             <Row className="justify-content-center px-4" style={{margin:"auto"}}>
@@ -96,27 +98,27 @@ const Item = (masterCart) => {
                     {/* Rating */}
                     <Row>
                         <Col xs={12} md={6}><StarRating presetRating={getReviewScore()} viewOnly={true}/></Col>
-                        <Col xs={12} md={6}><p>({itemReviews.length} reviews)</p></Col>
+                        <Col xs={12} md={6}><p>({itemReviews.length} {t("reviews")})</p></Col>
                     </Row>
                     {/* Cost and Cart */}
                     <Row className="g-0">
-                        <Col xs={12} md={6}><p>Cost: {itemBasic.cost}$</p></Col>
+                        <Col xs={12} md={6}><p>{t("Cost")}: {itemBasic.cost}$</p></Col>
                         <Col xs={12} md={6} className="d-md-flex d-none">
                             <div className="w-100 d-flex justify-content-center" style={{minHeight:"100%",height:"0"}}>
                                 <img src={cartIcon} className="h-100" alt="cartIcon"/>
-                                <p className="ps-2 m-0 align-bottom" onClick={addToCart} style={{cursor:"pointer",color:"rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1))"}}>Add to cart</p>
+                                <p className="ps-2 m-0 align-bottom" onClick={addToCart} style={{cursor:"pointer",color:"rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1))"}}>{t("Add to cart")}</p>
                             </div>
                         </Col>
                         <Col xs={12} md={6} className="d-md-none d-flex justify-content-center">
                             <div className="d-flex justify-content-center" style={{minHeight:"100%",height:"0"}}>
                                 <img src={cartIcon} className="h-100" alt="cartIcon"/>
                             </div>
-                            <p className="ps-4 m-0 align-bottom" onClick={addToCart} style={{cursor:"pointer"}}>Add to cart</p>
+                            <p className="ps-4 m-0 align-bottom" onClick={addToCart} style={{cursor:"pointer"}}>{t("Add to cart")}</p>
                         </Col>
                     </Row>
                     {/* Description */}
                     <Row className="text-start p-2">
-                        <h4>Description:</h4>
+                        <h4>{t("Description")}:</h4>
                         <p>{itemDetails.description}</p>
                     </Row>
                 </Col>
@@ -143,8 +145,8 @@ const Item = (masterCart) => {
             <Row>
                 {/* Forums */}
                 <Col xs={12} md={4}>
-                    <h2 className="">Forums</h2>
-                    <Link to="/forums" >Write your own forum post</Link>
+                    <h2 className="">{t("Forums")}</h2>
+                    <Link to="/forums" >{t("Write your own forum post")}</Link>
                     {
                     selectedForum!==undefined &&
                     <div className="p-4 m-4 bg-custom" onClick={() => forumRedirect()} style={{cursor:"pointer"}}>
@@ -158,8 +160,8 @@ const Item = (masterCart) => {
 
                 {/* Reviews */}
                 <Col xs={12} md={4}>
-                    <h2 className="">Reviews</h2>
-                    <p className="m-0 align-bottom" onClick={onPlaceReviewClick} style={{cursor:"pointer",textDecoration:"underline",color:"rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1))"}}>Leave a review</p>
+                    <h2 className="">{t("Reviews")}</h2>
+                    <p className="m-0 align-bottom" onClick={onPlaceReviewClick} style={{cursor:"pointer",textDecoration:"underline",color:"rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1))"}}>{t("Leave a review")}</p>
                     {
                     selectedReview!==undefined &&
                     <div className="p-4 m-4 bg-custom">
@@ -172,7 +174,7 @@ const Item = (masterCart) => {
                 </Col>
 
                 <Col xs={12} md={4}>
-                    <h2 className="mb-5 pb-2">Review Distribution</h2>
+                    <h2 className="mb-5 pb-2">{t("Review Distribution")}</h2>
                     {
                         <div className="p-4 m-4 bg-custom text-start">
                             <Row className="g-0 p-0">
@@ -209,10 +211,10 @@ const Item = (masterCart) => {
             {
                 showReviewPrompt &&
                 <div className="m-4 px-4 newReview text-start">
-                    <h2>Enter your review</h2>
+                    <h2>{t("Enter your review")}</h2>
                     <StarRating viewOnly={false}/>
-                    <textarea className="form-control mt-2" id="reviewText" placeholder="Review Text" rows={5}></textarea>
-                    <Button className="m-2 mt-3" variant="outline-primary">Submit Review</Button>
+                    <textarea className="form-control mt-2" id="reviewText" placeholder={t("Review Text")} rows={5}></textarea>
+                    <Button className="m-2 mt-3" variant="outline-primary">{t("Submit Review")}</Button>
                 </div>
             }
             

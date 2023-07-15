@@ -11,7 +11,13 @@ import {useNavigate} from "react-router-dom";
 import data from './data.json';
 import {logo, cartIcon, storeIcon, locationIcon, forumIcon} from './rsc/imgIndex.js';
 
+import { useTranslation } from "react-i18next";
+
 function BootNav(masterCart) {
+  const {t,i18n} = useTranslation()
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  }
 
   const navigate = useNavigate();
 
@@ -59,7 +65,7 @@ function BootNav(masterCart) {
     <Navbar expand="lg" className="bg-custom">
       <Container>
         {/* Logo */}
-        <Navbar.Brand as={Link} to="/P2"><img src={logo} className="m-0 p-0" style={{maxHeight:"100px"}} alt="logo"></img>MecMax</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/P2"><img src={logo} className="m-0 p-0" style={{maxHeight:"100px"}} alt="logo"></img>{t("MecMax")}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
         <Navbar.Collapse id="basic-navbar-nav">
@@ -71,7 +77,7 @@ function BootNav(masterCart) {
                     <Form className="d-flex">
                       <Form.Control
                         type="search"
-                        placeholder="Search"
+                        placeholder={t("Search")}
                         className="me-2"
                         aria-label="Search"
                         id="searchBar"
@@ -95,15 +101,23 @@ function BootNav(masterCart) {
                           }
                       </datalist>
 
-                      <Button variant="outline-primary" onClick={()=>searchBarNav()}>Search</Button>
+                      <Button variant="outline-primary" onClick={()=>searchBarNav()}>{t("Search")}</Button>
                     </Form>
                 </Col>
+
+                {/* Language Control */}
+                <Col className="d-flex p-0 justify-content-center">
+                  <p onClick={()=>changeLanguage("en")} style={{"cursor": "pointer"}} className="fw-bold">EN</p>
+                  <p>/</p>
+                  <p onClick={()=>changeLanguage("fr")} style={{"cursor": "pointer"}} className="fw-bold">FR</p>
+                </Col>
+
                 {/* Cart */}
                 <Col className="d-flex p-0">
                   <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
                     <img src={cartIcon} className="h-100" alt="cartIcon"/>
                   </div>
-                  <Nav.Link as={Link} to="/cart"><nobr>Cart ({numOfCartItems})</nobr></Nav.Link>
+                  <Nav.Link as={Link} to="/cart"><nobr>{t("Cart")} ({numOfCartItems})</nobr></Nav.Link>
                 </Col>
               </Row>
               {/* Nav links */}
@@ -112,19 +126,19 @@ function BootNav(masterCart) {
                   <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
                     <img src={storeIcon} className="h-100" alt="storeIcon"/>
                   </div>
-                  <Nav.Link className="w-auto" as={Link} to="/store">Store</Nav.Link>
+                  <Nav.Link className="w-auto" as={Link} to="/store">{t("Store")}</Nav.Link>
                 </Col>
                 <Col className="d-flex">
                   <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
                     <img src={locationIcon} className="h-100" alt="locationIcon"/>
                   </div>
-                  <Nav.Link className="w-auto" as={Link} to="/location"><nobr>Our Locations</nobr></Nav.Link>
+                  <Nav.Link className="w-auto" as={Link} to="/location"><nobr>{t("Our Locations")}</nobr></Nav.Link>
                 </Col>
                 <Col className="d-flex">
                   <div className="w-100 d-lg-flex d-none justify-content-end" style={{minHeight:"100%",height:"0"}}>
                     <img src={forumIcon} className="h-100" alt="forumIcon"/>
                   </div>
-                  <Nav.Link className="w-auto" as={Link} to="/forums">Forums</Nav.Link>
+                  <Nav.Link className="w-auto" as={Link} to="/forums">{t("Forums")}</Nav.Link>
                 </Col>
               </Row>
             </Container>

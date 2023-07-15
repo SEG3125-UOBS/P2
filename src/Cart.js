@@ -6,7 +6,12 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import { useState } from 'react';
 
+import { useTranslation } from "react-i18next";
+
+
 const Cart = (masterCart) => {
+    const {t,i18n} = useTranslation()
+
     //Global cart items
     let cartItems = masterCart.cart[0]
     //Set global cart (careful about infinite loop)
@@ -63,31 +68,31 @@ const Cart = (masterCart) => {
             {/* Alerts */}
             <Alert show={showAlert===1} onClose={()=>setAlert(-1)} variant="success" className="m-4" dismissible>
                 <Alert.Heading>
-                    <div>Purchase Completed</div>
+                    <div>{t("Purchase Completed")}</div>
                 </Alert.Heading>
                 <p>
-                Congratulations! Your items have been reserved for you. Visit the store at your booked time to pick up your items. 
+                {t("Congratulations! Your items have been reserved for you. Visit the store at your booked time to pick up your items.")}
                 <br></br>
-                You may close this page.
+                {t("You may close this page.")}
                 </p>
             </Alert>
             <Alert show={showAlert===0} variant="danger" onClose={()=>setAlert(-1)} className="m-4" dismissible>
                 <Alert.Heading>
-                    <div>Purchase Error</div>
+                    <div>{t("Purchase Error")}</div>
                 </Alert.Heading>
                 <p>
-                There was a problem purchasing your items. Try checking your appointment details before trying again.
+                {t("There was a problem purchasing your items. Try checking your appointment details before trying again.")}
                 </p>
             </Alert>
 
 
-            <h1 className="p-3">Your Cart</h1>
+            <h1 className="p-3">{t("Your Cart")}</h1>
             <Row className="justify-content-center">
                 <Col sm={12} md={4}>
-                    <h3 className="p-1">Missing Anything?</h3>
+                    <h3 className="p-1">{t("Missing Anything")}?</h3>
                 </Col>
                 <Col xs={12} md={3}>
-                    <Button as={Link} to="/store" variant="outline-primary">Back to Store page</Button>
+                    <Button as={Link} to="/store" variant="outline-primary">{t("Back to Store page")}</Button>
                 </Col>
             </Row>
 
@@ -119,7 +124,7 @@ const Cart = (masterCart) => {
                         <Col xs={2}>
                             {
                                 cartData.map((eachItem,index) => (
-                                    <p key={index}>No Sale</p>
+                                    <p key={index}>{t("No Sale")}</p>
                                 ))
                             }
                         </Col>
@@ -127,7 +132,7 @@ const Cart = (masterCart) => {
                         <Col xs={4}>
                             {
                                 cartItems.map((eachId,index) => (
-                                    <Button key={index} onClick={() => removeItemFromCart(index)} variant="outline-danger" className="w-100">Remove from cart</Button>
+                                    <Button key={index} onClick={() => removeItemFromCart(index)} variant="outline-danger" className="w-100">{t("Remove from cart")}</Button>
                                 ))
                             }
                         </Col>
@@ -148,9 +153,9 @@ const Cart = (masterCart) => {
                         <Col xs={1} style={{borderLeft:"2px solid black"}}></Col>
                         {/* Total Name */}
                         <Col className="text-start">
-                            <p className="fw-underline">Subtotal</p>
-                            <p className="fw-underline">Taxes</p>
-                            <p className="fw-underline">Total Due</p>
+                            <p className="fw-underline">{t("Subtotal")}</p>
+                            <p className="fw-underline">{t("Taxes")}</p>
+                            <p className="fw-underline">{t("Total Due")}</p>
                         </Col>
                     </Row>
 
@@ -158,22 +163,22 @@ const Cart = (masterCart) => {
 
                 {/* Pickup Booking */}
                 <Col xs={12} md={4} className="p-4">
-                    <h3>Set a Pickup Appointment</h3>
+                    <h3>{t("Set a Pickup Appointment")}</h3>
                     <div className="text-start pt-3">
-                        <label title="" htmlFor="locSelect" className="form-select-label">Enter Store Location: </label>
+                        <label title="" htmlFor="locSelect" className="form-select-label">{t("Enter Store Location")}: </label>
                     </div>
                     <Form.Select aria-label="Default select example" id="locationbox" defaultValue={"0"}>
-                        <option value="0" disabled>Location</option>
+                        <option value="0" disabled>{t("Location")}</option>
                         <option value="1">Gatineau</option>
                         <option value="2">Vanier</option>
                         <option value="3">Nepean</option>
                     </Form.Select>
 
                     <div className="text-start pt-3">
-                        <label title="" htmlFor="locSelect" className="form-select-label">Enter Pickup Time:</label>
+                        <label title="" htmlFor="locSelect" className="form-select-label">{t("Enter Pickup Time")}:</label>
                     </div>
                     <Form.Select aria-label="Default select example" id="timebox" defaultValue={"0"}>
-                        <option value="0" disabled>Pickup Time</option>
+                        <option value="0" disabled>{t("Pickup Time")}</option>
                         <option value="1">10:00</option>
                         <option value="2">11:00</option>
                         <option value="3">12:00</option>
@@ -182,23 +187,23 @@ const Cart = (masterCart) => {
                     </Form.Select>
 
                     <div className="text-start pt-3">
-                        <label title="" htmlFor="locSelect" className="form-select-label">Enter Full Name:</label>
+                        <label title="" htmlFor="locSelect" className="form-select-label">{t("Enter Full Name")}:</label>
                     </div>
                     <input className="form-control" type="text" id="namebox" placeholder="ex: John Doe"></input>
 
                     <div className="text-start pt-3">
-                        <label title="" htmlFor="locSelect" className="form-select-label">Enter Cell Phone Number:</label>
+                        <label title="" htmlFor="locSelect" className="form-select-label">{t("Enter Cell Phone Number")}:</label>
                     </div>
                     <input className="form-control" type="text" id="numberbox" placeholder="ex: 6131112222"></input>
 
                     <div className="text-start pt-3">
-                        <label title="" htmlFor="locSelect" className="form-select-label">Do you need employee assistance?</label>
+                        <label title="" htmlFor="locSelect" className="form-select-label">{t("Do you need employee assistance")}?</label>
                     </div>
                     <Form.Check type={"checkbox"} label={`Employee Assistance`} className="pt-2 text-start"/>
                 </Col>
             </Row>
 
-            <Button variant="outline-success" className="mt-3" onClick={()=>onCompleteClick()}>Complete Purchase</Button>
+            <Button variant="outline-success" className="mt-3" onClick={()=>onCompleteClick()}>{t("Complete Purchase")}</Button>
 
         </div>
     );

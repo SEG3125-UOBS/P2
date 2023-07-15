@@ -7,6 +7,8 @@ import {useNavigate} from "react-router-dom";
 import { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 
+import { useTranslation } from "react-i18next";
+
 import dataImport from './data.json'
 const itemData = dataImport.items;
 var forumData = dataImport.forums.filter(headPost => headPost.reply===false);
@@ -18,6 +20,7 @@ forumData = forumData.map(
 const itemFilterOptions = itemData.map(item=>item.name)
 
 const Forum = () => {
+    const {t,i18n} = useTranslation()
 
     const navigate = useNavigate();
     function forumRedirect(forumSelected){
@@ -71,40 +74,40 @@ const Forum = () => {
             {/* Alerts */}
             <Alert show={showAlert===1} onClose={()=>setAlert(-1)} variant="success" className="m-4" dismissible>
                 <Alert.Heading>
-                    <div>Forum Post Created</div>
+                    <div>{t("Forum Post Created")}</div>
                 </Alert.Heading>
                 <p>
-                Congratulations! Your forum post has been submitted and is awaiting manual review. It will be posted shortly.
+                {t("Congratulations! Your forum post has been submitted and is awaiting manual review. It will be posted shortly.")}
                 <br></br>
-                You may close this page.
+                {t("You may close this page.")}
                 </p>
             </Alert>
             <Alert show={showAlert===0} variant="danger" onClose={()=>setAlert(-1)} className="m-4" dismissible>
                 <Alert.Heading>
-                    <div>Forum Post Error</div>
+                    <div>{t("Forum Post Error")}</div>
                 </Alert.Heading>
                 <p>
-                There was a problem creating your forum post. Check your post details and try again.
+                {t("There was a problem creating your forum post. Check your post details and try again.")}
                 </p>
             </Alert>
 
-            <h1 className='p-3 m-3'>Forums</h1>
+            <h1 className='p-3 m-3'>{t("Forums")}</h1>
 
             {/* New Forum Post */}
-            <h3 className='p-1'>Have a Question?</h3>
+            <h3 className='p-1'>{t("Have a Question")}?</h3>
             <Row className='justify-content-center'>
                 <Col xs={8}>
 
                     <Accordion className="ps-4" alwaysOpen>
                         <Accordion.Item eventKey="Laptops">
-                            <Accordion.Header>Make a forum post</Accordion.Header>
+                            <Accordion.Header>{t("Make a forum post")}</Accordion.Header>
                             <Accordion.Body>
                                 <Row>
                                     <Col xs={8}>
-                                        <input className="form-control" type="text" id="subjectLine" placeholder="Subject Line"></input>
+                                        <input className="form-control" type="text" id="subjectLine" placeholder={t("Subject Line")}></input>
                                     </Col>
                                     <Col xs={4}>
-                                    <input className="form-control mr-sm-2" list="datalistOptions" id="dataList" placeholder="Relevant Product"></input>
+                                    <input className="form-control mr-sm-2" list="datalistOptions" id="dataList" placeholder={t("Relevant Product")}></input>
                                     <datalist id="datalistOptions">
                                         {
                                             itemData.map((item) => (
@@ -116,10 +119,10 @@ const Forum = () => {
                                 </Row>
                                 <Row>
                                     <Col>
-                                    <textarea className="form-control mt-2" id="forumText" placeholder="Forum Post Text" rows={5}></textarea>
+                                    <textarea className="form-control mt-2" id="forumText" placeholder={t("Forum Post Text")} rows={5}></textarea>
                                     </Col>
                                 </Row>
-                                <Button className='mt-3' onClick={()=>onCompleteClick()}>Submit</Button>
+                                <Button className='mt-3' onClick={()=>onCompleteClick()}>{t("Submit")}</Button>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
@@ -128,13 +131,13 @@ const Forum = () => {
 
             {/* Forum list */}
             <div className='p-5'>
-                <h3 className='p-1'>Find posts by product or by forum title</h3>
+                <h3 className='p-1'>{t("Find posts by product or by forum title")}</h3>
                 <Row>
                     <Col xs={8}>
-                        <input className="form-control" onInput={(e)=>setActiveTitleFilter(e.target.value)} type="text" id="subjectLineFilter" placeholder="Search by Forum Title"></input>
+                        <input className="form-control" onInput={(e)=>setActiveTitleFilter(e.target.value)} type="text" id="subjectLineFilter" placeholder={t("Search by Forum Title")}></input>
                     </Col>
                     <Col xs={4}>
-                    <input className="form-control mr-sm-2" onInput={(e)=>filterByItem(e.target.value)} list="datalistOptions" id="dataListFilter" placeholder="Filter by product"></input>
+                    <input className="form-control mr-sm-2" onInput={(e)=>filterByItem(e.target.value)} list="datalistOptions" id="dataListFilter" placeholder={t("Filter by product")}></input>
                     <datalist id="datalistOptions">
                         {
                             itemData.map((item) => (
@@ -152,7 +155,7 @@ const Forum = () => {
                                     <Card.Body>
                                         <Card.Title>{forum.title}</Card.Title>
                                         {/* Make Clickable?: add hover cursor effect, add redirect */}
-                                        <p className='fw-bold'>Related Product: {forum.itemName}</p>
+                                        <p className='fw-bold'>{t("Related Product")}: {forum.itemName}</p>
                                         <Row>
                                             <Col>
                                                 <p className='card-text forumText'>

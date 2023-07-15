@@ -10,8 +10,14 @@ import data from './data.json'
 
 import './Home.css';
 
+
+import { useTranslation } from "react-i18next";
+
+
 const Home = () => {
     
+    const {t,i18n} = useTranslation()
+
     var itemData = data.items;
     //Dictionary for images
     const imgDict = {
@@ -66,18 +72,18 @@ const Home = () => {
                 <Carousel.Item>
                     <img className="d-block h-100 carousel-image" src={banner1} alt="First slide"/>
                     <Carousel.Caption>
-                    <h3>Upcoming Sale</h3>
+                    <h3>{t("Upcoming Sale")}</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img className="d-block h-100 carousel-image" src={banner2} alt="Second slide" />
                     <Carousel.Caption>
-                    <h3>New Laptops in Stock</h3>
+                    <h3>{t("New Laptops in Stock")}</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
             
-            <h1 className='py-2'>Top Selling Items</h1>
+            <h1 className='py-2'>{t("Top Selling Items")}</h1>
 
             <Row className="g-0 px-4">
             {
@@ -105,7 +111,7 @@ const Home = () => {
             }
             </Row>
 
-            <h1 className='py-2'>Explore Categories</h1>
+            <h1 className='py-2'>{t("Explore Categories")}</h1>
 
             <Row className="g-0 px-4">
             {

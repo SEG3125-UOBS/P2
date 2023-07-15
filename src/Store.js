@@ -10,10 +10,11 @@ import Form from 'react-bootstrap/Form';
 import {Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
 import data from './data.json'
-import { act } from "react-dom/test-utils";
 
+import { useTranslation } from "react-i18next";
 
 const Store = () => {
+    const {t,i18n} = useTranslation()
 
     const {category} = useParams()
     const categoryMap = {
@@ -122,34 +123,34 @@ const Store = () => {
                 <Col xs={5} md={3}>
                     {/* Categories */}
                     <Row className="m-2 bg-custom">
-                        <h2 className="p-2">Categories</h2>
+                        <h2 className="p-2">{t("Categories")}</h2>
                         
                         {/* <Accordion defaultActiveKey="0" alwaysOpen> FOR STARTING WITH 1 SECTION OPEN*/}
                         <Accordion className="p-2" alwaysOpen>
 
                             <Accordion.Item eventKey="Electronic Devices">
-                                <Accordion.Header>Electronic Devices</Accordion.Header>
+                                <Accordion.Header>{t("Electronic Devices")}</Accordion.Header>
                                 <Accordion.Body className="p-0">
                                     <Accordion className="ps-4" alwaysOpen>
                                         <Accordion.Item eventKey="Laptops">
-                                            <Accordion.Header>Laptops</Accordion.Header>
+                                            <Accordion.Header>{t("Laptops")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[0]} onChange={(e)=>changeActiveCategory(0,e.target.checked)} label={`Gaming Laptops`} className="pt-1 text-start"/> 
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[1]} onChange={(e)=>changeActiveCategory(1,e.target.checked)}  label={`Office Laptops`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[0]} onChange={(e)=>changeActiveCategory(0,e.target.checked)} label={t("Gaming Laptops")} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[1]} onChange={(e)=>changeActiveCategory(1,e.target.checked)} label={t(`Office Laptops`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Desktops">
-                                            <Accordion.Header>Desktops</Accordion.Header>
+                                            <Accordion.Header>{t("Desktops")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[2]} onChange={(e)=>changeActiveCategory(2,e.target.checked)}  label={`Gaming Prebuilt Desktop`} className="pt-1 text-start"/> 
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[3]} onChange={(e)=>changeActiveCategory(3,e.target.checked)}  label={`Office Prebuilt Desktop`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[2]} onChange={(e)=>changeActiveCategory(2,e.target.checked)}  label={t(`Gaming Prebuilt Desktop`)} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[3]} onChange={(e)=>changeActiveCategory(3,e.target.checked)}  label={t(`Office Prebuilt Desktop`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Printers">
-                                            <Accordion.Header>Printers</Accordion.Header>
+                                            <Accordion.Header>{t("Printers")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[4]} onChange={(e)=>changeActiveCategory(4,e.target.checked)}  label={`Home Printers`} className="pt-1 text-start"/>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[5]} onChange={(e)=>changeActiveCategory(5,e.target.checked)}  label={`Office Printers`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[4]} onChange={(e)=>changeActiveCategory(4,e.target.checked)}  label={t(`Home Printers`)} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[5]} onChange={(e)=>changeActiveCategory(5,e.target.checked)}  label={t(`Office Printers`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
@@ -157,28 +158,28 @@ const Store = () => {
                             </Accordion.Item>
 
                             <Accordion.Item eventKey="Peripherals">
-                                <Accordion.Header>Peripherals</Accordion.Header>
+                                <Accordion.Header>{t("Peripherals")}</Accordion.Header>
                                 <Accordion.Body className="p-0">
                                     <Accordion className="ps-4" alwaysOpen>
                                         <Accordion.Item eventKey="Monitors">
-                                            <Accordion.Header>Monitors</Accordion.Header>
+                                            <Accordion.Header>{t("Monitors")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[6]} onChange={(e)=>changeActiveCategory(6,e.target.checked)}  label={`WideScreen Monitors`} className="pt-1 text-start"/> 
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[7]} onChange={(e)=>changeActiveCategory(7,e.target.checked)}  label={`Office Monitors`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[6]} onChange={(e)=>changeActiveCategory(6,e.target.checked)}  label={t(`WideScreen Monitors`)} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[7]} onChange={(e)=>changeActiveCategory(7,e.target.checked)}  label={t(`Office Monitors`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Keyboards">
-                                            <Accordion.Header>Keyboards</Accordion.Header>
+                                            <Accordion.Header>{t("Keyboards")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[8]} onChange={(e)=>changeActiveCategory(8,e.target.checked)}  label={`Gaming Keyboards`} className="pt-1 text-start"/> 
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[9]} onChange={(e)=>changeActiveCategory(9,e.target.checked)}  label={`Standard Keyboards`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[8]} onChange={(e)=>changeActiveCategory(8,e.target.checked)}  label={t(`Gaming Keyboards`)} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[9]} onChange={(e)=>changeActiveCategory(9,e.target.checked)}  label={t(`Standard Keyboards`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Mouse">
-                                            <Accordion.Header>Mouse</Accordion.Header>
+                                    <Accordion.Header>{t("Mouse")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[10]} onChange={(e)=>changeActiveCategory(10,e.target.checked)}  label={`Gaming Mice`} className="pt-1 text-start"/> 
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[11]} onChange={(e)=>changeActiveCategory(11,e.target.checked)}  label={`Standard Mice`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[10]} onChange={(e)=>changeActiveCategory(10,e.target.checked)}  label={t(`Gaming Mice`)} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[11]} onChange={(e)=>changeActiveCategory(11,e.target.checked)}  label={t(`Standard Mice`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
@@ -186,20 +187,20 @@ const Store = () => {
                             </Accordion.Item>
 
                             <Accordion.Item eventKey="Furniture">
-                                <Accordion.Header>Furniture</Accordion.Header>
+                                <Accordion.Header>{t("Furniture")}</Accordion.Header>
                                 <Accordion.Body className="p-0">
                                     <Accordion className="ps-4" alwaysOpen>
                                         <Accordion.Item eventKey="Chairs">
-                                            <Accordion.Header>Chairs</Accordion.Header>
+                                            <Accordion.Header>{t("Chairs")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[12]} onChange={(e)=>changeActiveCategory(12,e.target.checked)}  label={`Gaming Chairs`} className="pt-1 text-start"/> 
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[13]} onChange={(e)=>changeActiveCategory(13,e.target.checked)}  label={`Office Chairs`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[12]} onChange={(e)=>changeActiveCategory(12,e.target.checked)}  label={t(`Gaming Chairs`)} className="pt-1 text-start"/> 
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[13]} onChange={(e)=>changeActiveCategory(13,e.target.checked)}  label={t(`Office Chairs`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="Desks">
-                                            <Accordion.Header>Desks</Accordion.Header>
+                                            <Accordion.Header>{t("Desks")}</Accordion.Header>
                                             <Accordion.Body>
-                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[14]} onChange={(e)=>changeActiveCategory(14,e.target.checked)}  label={`Office Desks`} className="pt-1 text-start"/>
+                                                <Form.Check type={"checkbox"} defaultChecked={activeCat[14]} onChange={(e)=>changeActiveCategory(14,e.target.checked)}  label={t(`Office Desks`)} className="pt-1 text-start"/>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
@@ -211,24 +212,23 @@ const Store = () => {
 
                     {/* Filters */}
                     <Row className="m-2 bg-custom">
-                        <h2 className="p-2">Filters</h2>
-                        {/* TBD: This could be a form? */}
+                        <h2 className="p-2">{t("Filters")}</h2>
 
                         {/* Cost Filter */}
                         <div className="text-start p-2">
                             <input type="checkbox" id="cost-switch" className="form-check-input mx-3" onChange={e => setCostDisabled(!e.target.checked)}></input>
-                            <label title="" htmlFor="cost-switch" className="form-check-label">Cost Filter</label>
+                            <label title="" htmlFor="cost-switch" className="form-check-label">{t("Cost Filter")}</label>
 
                             <Row className="p-2">
-                                <Col><input className="form-control" onChange={(e)=>onChangeCostFilter(e.target.value,0)} type="number" id="minCost" placeholder="Minimum" disabled={costDisabled}></input></Col>
-                                <Col><input className="form-control" onChange={(e)=>onChangeCostFilter(e.target.value,1)} type="number" id="maxCost" placeholder="Maximum" disabled={costDisabled}></input></Col>
+                                <Col><input className="form-control" onChange={(e)=>onChangeCostFilter(e.target.value,0)} type="number" id="minCost" placeholder={t("Minimum")} disabled={costDisabled}></input></Col>
+                                <Col><input className="form-control" onChange={(e)=>onChangeCostFilter(e.target.value,1)} type="number" id="maxCost" placeholder={t("Maximum")} disabled={costDisabled}></input></Col>
                             </Row>
                         </div>
 
                         {/* Rating Filter */}
                         <div className="text-start p-2">
                             <input type="checkbox" id="rating-switch" className="form-check-input mx-3" onChange={e => setRatingDisabled(!e.target.checked)}></input>
-                            <label title="" htmlFor="rating-switch" className="form-check-label">Rating Filter</label>
+                            <label title="" htmlFor="rating-switch" className="form-check-label">{t("Rating Filter")}</label>
 
                             <Row className="p-2">
                                 {/* <Col><input className="form-control" type="number" id="minRating" placeholder="Minimum" disabled={ratingDisabled}></input></Col> */}
