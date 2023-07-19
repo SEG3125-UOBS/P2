@@ -18,20 +18,20 @@
     ],
 
     "itemDetails":[
-        {"id":1, "description":"A medium/high end gaming laptop.", "additional":["AMD Ryzen 7 7745HX Processor","1 TB SSD storage","32 GB DDR5-5200MHz (SODIMM) (2x16GB)"]},
-        {"id":2, "description":"A standard office laptop. Built for durability and cost-effectivenes", "additional":[]},
-        {"id":3, "description":"A high-end gaming desktop. Pre-built by manufacturer", "additional":[]},
-        {"id":4, "description":"A standard office desktop. Cost-effective and durable", "additional":["12th Gen Intel® Core™ i7-12700","Intel® UHD Graphics 770 ","16 GB, 2 x 8 GB, DDR5, 4400 MHz; "]},
-        {"id":5, "description":"A standard office printer. Not for industrial use", "additional":["In-built scanner","Network Capabilities","2-sided printing"]},
-        {"id":6, "description":"An Ultra Wide monitor. The ultimate monitor for gaming and movies", "additional":["34-inch curved screen"]},
-        {"id":7, "description":"A standard computer monitor. Cost-effective", "additional":["24-inch Screen"]},
-        {"id":8, "description":"A standard office keyboard. ", "additional":["2-year manufacturer guarantee"]},
-        {"id":9, "description":"A Gaming keyboard. Lowest response time possible", "additional":["1-year manufacturer guarantee"]},
-        {"id":10, "description":"A Standard computer mouse.", "additional":["2-year manufacturer guarantee"]},
-        {"id":11, "description":"A gaming computer mouse. Produced by Razer", "additional":["1-year manufacturer guarantee", "3 Removable side panels"]},
-        {"id":12, "description":"An office chair. Comfortable and Affordable", "additional":["4-year store warranty"]},
-        {"id":13, "description":"A gaming chair. ", "additional":["1-year manufacturer guarantee"]},
-        {"id":14, "description":"A simple desk. A perfect addition to a home office", "additional":["3-year manufacturer guarantee"]}
+        {"id":1, "description":"A medium/high end gaming laptop.","alsoBought":[3,5], "additional":["AMD Ryzen 7 7745HX Processor","1 TB SSD storage","32 GB DDR5-5200MHz (SODIMM) (2x16GB)"]},
+        {"id":2, "description":"A standard office laptop. Built for durability and cost-effectivenes","alsoBought":[10,12], "additional":[]},
+        {"id":3, "description":"A high-end gaming desktop. Pre-built by manufacturer","alsoBought":[1,5], "additional":[]},
+        {"id":4, "description":"A standard office desktop. Cost-effective and durable","alsoBought":[6,7], "additional":["12th Gen Intel® Core™ i7-12700","Intel® UHD Graphics 770 ","16 GB, 2 x 8 GB, DDR5, 4400 MHz; "]},
+        {"id":5, "description":"A standard office printer. Not for industrial use","alsoBought":[3,1], "additional":["In-built scanner","Network Capabilities","2-sided printing"]},
+        {"id":6, "description":"An Ultra Wide monitor. The ultimate monitor for gaming and movies","alsoBought":[4,7], "additional":["34-inch curved screen"]},
+        {"id":7, "description":"A standard computer monitor. Cost-effective","alsoBought":[4,6], "additional":["24-inch Screen"]},
+        {"id":8, "description":"A standard office keyboard. ","alsoBought":[9,10,11], "additional":["2-year manufacturer guarantee"]},
+        {"id":9, "description":"A Gaming keyboard. Lowest response time possible","alsoBought":[10], "additional":["1-year manufacturer guarantee"]},
+        {"id":10, "description":"A Standard computer mouse.","alsoBought":[11], "additional":["2-year manufacturer guarantee"]},
+        {"id":11, "description":"A gaming computer mouse. Produced by Razer","alsoBought":[8,6,4,1], "additional":["1-year manufacturer guarantee", "3 Removable side panels"]},
+        {"id":12, "description":"An office chair. Comfortable and Affordable","alsoBought":[8,9,13], "additional":["4-year store warranty"]},
+        {"id":13, "description":"A gaming chair. ","alsoBought":[14,10], "additional":["1-year manufacturer guarantee"]},
+        {"id":14, "description":"A simple desk. A perfect addition to a home office","alsoBought":[13,12], "additional":["3-year manufacturer guarantee"]}
     ],
 
     "reviews":[

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from "react-router-dom";
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Card from 'react-bootstrap/Card';
 
 import {cartIcon ,Laptop1, Laptop2, Desktop1,Desktop2,Printer1,WideScreen1,Screen1,Keyboard1,Keyboard2,Mouse1,Mouse2,Chair1,Chair2,Desk1} from './rsc/imgIndex.js';
 
@@ -47,6 +48,21 @@ const Item = (masterCart) => {
     const itemDetailsData = data.itemDetails;
     const itemDetails = itemDetailsData.filter(item => item.id===parseInt(itemId))[0]
 
+    var alsoBought = itemData.filter(item => itemDetails.alsoBought.includes(item.id));
+    for (var i=0;i<alsoBought.length;i++) {
+        alsoBought[i].imageData = imgDict[alsoBought[i].image]
+        
+        var relevantReviews = data.reviews.filter(review => review.itemId===alsoBought[i].id)
+        alsoBought[i].reviewScore = 0;
+        for (let j=0;j<relevantReviews.length;j++) {
+            alsoBought[i].reviewScore += relevantReviews[j].rating
+        }
+        alsoBought[i].reviewScore = Math.round(alsoBought[i].reviewScore/relevantReviews.length);
+    }
+    function redirect(itemId){
+        navigate(`/item/${itemId}`)
+    }
+    
     //Get 1 forum post for display
     const selectedForum = data.forums.filter(post => post.itemId===parseInt(itemId))[0]
     //Get 1 review for display
@@ -217,6 +233,36 @@ const Item = (masterCart) => {
                     <Button className="m-2 mt-3" variant="outline-primary">{t("Submit Review")}</Button>
                 </div>
             }
+
+            {/* Users also bought */}
+
+            <h2 className='py-2'>{t("Customers also bought")}:</h2>
+
+            <Row className="g-0 px-4">
+            {
+                alsoBought.map((item) => (
+                    <Col sm={6} xl={3} key={item.id} className="p-2">
+                        <Card onClick={() => redirect(item.id)} style={{height:"365px"}}>
+                            <Card.Img variant="top" src={item.imageData} style={{maxHeight:"250px"}} />
+                                <Card.Body style={{display:"flex",alignItems:"flex-end"}}>
+                                    <Col>
+                                        <Card.Title>{item.name}</Card.Title>
+                                        <Row>
+                                            <Col><StarRating presetRating={item.reviewScore} viewOnly={true}/></Col>
+                                            <Col>
+                                                <Card.Text>
+                                                Cost: {item.cost}$
+                                                </Card.Text>
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                    
+                                </Card.Body>
+                        </Card>
+                    </Col>                        
+                ))
+            }
+            </Row>
             
         </div>
     );

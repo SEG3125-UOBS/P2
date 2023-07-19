@@ -83,6 +83,7 @@ const Home = () => {
                 </Carousel.Item>
             </Carousel>
             
+            {/* Top Selling */}
             <h1 className='py-2'>{t("Top Selling Items")}</h1>
 
             <Row className="g-0 px-4">
@@ -111,6 +112,7 @@ const Home = () => {
             }
             </Row>
 
+            {/* Categories */}
             <h1 className='py-2'>{t("Explore Categories")}</h1>
 
             <Row className="g-0 px-4">
