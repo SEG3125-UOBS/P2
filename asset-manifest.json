@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/P2/static/css/main.41648c29.css",
-    "main.js": "/P2/static/js/main.6efc28cf.js",
+    "main.js": "/P2/static/js/main.dc879737.js",
     "static/media/keyboard1.png": "/P2/static/media/keyboard1.aad1b92311c9020b9e07.png",
     "static/media/laptop1.jpg": "/P2/static/media/laptop1.76888f6a7576869b88ac.jpg",
     "static/media/banner2.png": "/P2/static/media/banner2.31c6c6d20d7233d3db70.png",
@@ -22,10 +22,10 @@
     "static/media/store.svg": "/P2/static/media/store.7d3b018c2275f55a46001a89c3c364bc.svg",
     "index.html": "/P2/index.html",
     "main.41648c29.css.map": "/P2/static/css/main.41648c29.css.map",
-    "main.6efc28cf.js.map": "/P2/static/js/main.6efc28cf.js.map"
+    "main.dc879737.js.map": "/P2/static/js/main.dc879737.js.map"
   },
   "entrypoints": [
     "static/css/main.41648c29.css",
-    "static/js/main.6efc28cf.js"
+    "static/js/main.dc879737.js"
   ]
 }
